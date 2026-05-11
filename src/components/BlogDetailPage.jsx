@@ -215,7 +215,7 @@ export default function BlogDetailPage() {
                         {/* Footer actions */}
                         <div className="blog-detail-actions">
                             <a
-                                href={`https://carsnbike.com/blog/${blog.slug}`}
+                                href={`https://carsnbike.com/blog-single/${blog.slug}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="blog-external-link"
