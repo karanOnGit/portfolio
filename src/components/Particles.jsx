@@ -20,9 +20,9 @@ export default function Particles({ count = 2000 }) {
         for (let i = 0; i < count; i++) {
             const i3 = i * 3
             // Wide spread for cosmic feel
-            particles.current[i3] = (Math.random() - 0.5) * 20
-            particles.current[i3 + 1] = (Math.random() - 0.5) * 20
-            particles.current[i3 + 2] = (Math.random() - 0.5) * 20
+            particles.current[i3] = (Math.random() - 0.5) * 10
+            particles.current[i3 + 1] = (Math.random() - 0.5) * 10
+            particles.current[i3 + 2] = (Math.random() - 0.5) * 10
 
             const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)]
 
@@ -35,7 +35,7 @@ export default function Particles({ count = 2000 }) {
     useFrame((state) => {
         const time = state.clock.getElapsedTime()
         // Slow, ambient rotation
-        mesh.current.rotation.y = time * 0.02
+        mesh.current.rotation.y = time * 0.002
         mesh.current.rotation.x = time * 0.01
     })
 
@@ -44,7 +44,7 @@ export default function Particles({ count = 2000 }) {
             <bufferGeometry>
                 <bufferAttribute
                     attach="attributes-position"
-                    count={particles.current.length / 3}
+                    count={particles.current.length / 30}
                     array={particles.current}
                     itemSize={3}
                 />

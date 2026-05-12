@@ -2,6 +2,13 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import BlogFormModal from './BlogFormModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import {
+    getCachedDetail,
+    setCachedDetail,
+    patchCachedDetail,
+    removeCachedItem,
+    invalidateCache,
+} from '../utils/blogCache';
 import '../styles/blogs.css';
 import '../styles/blog-form.css';
 
@@ -21,6 +28,7 @@ export default function BlogDetailPage() {
 
     const [blog, setBlog]           = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [fromCache, setFromCache] = useState(false);
     const [error, setError]         = useState(null);
 
     // Modals
@@ -32,26 +40,45 @@ export default function BlogDetailPage() {
     const [toast, setToast] = useState(null);
     const showToast = useCallback((message, type = 'success') => setToast({ message, type }), []);
 
-    // ── Fetch blog ────────────────────────────────────
-    const fetchBlog = useCallback(() => {
+    // ── Fetch blog (with sessionStorage cache) ──────
+    const fetchBlog = useCallback((forceRefresh = false) => {
+        // Serve from cache if available and not forcing refresh
+        if (!forceRefresh) {
+            const cached = getCachedDetail(slug);
+            if (cached) {
+                setBlog(cached);
+                setFromCache(true);
+                setIsLoading(false);
+                return;
+            }
+        }
+
         setIsLoading(true);
+        setFromCache(false);
         setError(null);
         fetch(`${API_BASE}/${slug}`)
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 return res.json();
             })
-            .then(data => setBlog(data.blog || data.data || data))
+            .then(data => {
+                const b = data.blog || data.data || data;
+                setCachedDetail(slug, b);   // persist to sessionStorage
+                setBlog(b);
+                setFromCache(false);
+            })
             .catch(err => setError(err.message))
             .finally(() => setIsLoading(false));
     }, [slug]);
 
     useEffect(() => { fetchBlog(); }, [fetchBlog]);
 
-    // ── Handlers ──────────────────────────────────────
+    // ── Handlers ─────────────────────────────────
     const handleEditSuccess = (saved) => {
         showToast('✅ Blog updated successfully!');
-        fetchBlog();                              // refresh content
+        // Patch cache entry + force fresh detail fetch
+        patchCachedDetail(slug, saved);
+        fetchBlog(true);
     };
 
     const handleDeleteConfirm = async () => {
@@ -63,6 +90,9 @@ export default function BlogDetailPage() {
                 const json = await res.json().catch(() => ({}));
                 throw new Error(json.message || `HTTP ${res.status}`);
             }
+            // Remove from cache and list cache
+            removeCachedItem(blog.id, slug);
+            invalidateCache(slug);
             showToast('🗑️ Blog deleted!');
             setTimeout(() => navigate('/blog'), 1500);
         } catch (err) {

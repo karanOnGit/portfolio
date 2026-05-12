@@ -652,3 +652,39 @@
     gap: 0.6rem;
     align-items: center;
 }
+
+/* ── Cache status badge ──────────────────────────────── */
+.blogs-cache-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(99, 102, 241, 0.8);
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 50px;
+    padding: 0.1rem 0.55rem 0.1rem 0.4rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    letter-spacing: 0.02em;
+    cursor: default;
+}
+
+.blogs-cache-refresh {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.blogs-cache-refresh:hover {
+    transform: rotate(180deg);
+    color: #a5b4fc;
+}

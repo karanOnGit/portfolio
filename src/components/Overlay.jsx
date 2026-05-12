@@ -152,7 +152,7 @@ export default function Overlay() {
             {/* Technical Proficiency / Skills Section */}
             <section className="skills-section" style={{ padding: '5vw 10vw' }}>
                 <GlassCard style={{ background: 'rgba(0,0,0,0.6)', border: '1px solid #333' }}>
-                    <h2 className="text-glow" style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', marginBottom: '3rem', color: 'var(--color-accent)' }}>PROFICIENCY</h2>
+                    <h2 className="text-glow" style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', marginBottom: '3rem', color: 'var(--color-accent)' }}>TECH STACKS </h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
                         {[
                             { title: 'Languages', items: ['JavaScript (ES6+)', 'TypeScript', 'Python', 'C++', 'SQL'] },
@@ -178,18 +178,23 @@ export default function Overlay() {
                 {[
                     {
                         title: 'SOCIOGLAMM',
-                        subtitle: 'Mediaxpedia Technologies',
+                        subtitle: 'Social Media Platform',
                         desc: 'A complex platform integrating brand advertising E-commerce with community-driven social engagement (videos & reels). Managed complex state logic optimized for user retention.'
                     },
                     {
                         title: 'CARSNBIKE',
                         subtitle: 'Automotive Listing Platform',
-                        desc: 'Engineered a dynamic listing platform with location-based filtering. Demonstrated expertise in handling large datasets and scalable CMS.'
+                        desc: 'Engineered a dynamic listing platform with location-based change in currency and price for US and Indian users. Demonstrated expertise in handling large datasets and scalable CMS.'
                     },
                     {
                         title: 'HEALTHCARE APP',
-                        subtitle: 'React Native Mobile Application',
-                        desc: 'Built a cross-platform mobile application for doctor appointment scheduling.'
+                        subtitle: 'Healthcare Mobile Application',
+                        desc: 'Built a cross-platform mobile application for doctor appointment scheduling. Handled push notifications for appointment reminders and follow-ups. It is my first freelancing project.'
+                    },
+                    {
+                        title: 'FHM NEWS',
+                        subtitle: 'News Delivery Web Application',
+                        desc: 'Built a news aggregation platform using Next.js. Handled API integration and data fetching for news articles.'
                     }
                 ].map((project, idx) => (
                     <GlassCard key={idx} delay={idx * 0.1} style={{ marginBottom: '4rem', transform: `translateX(${idx % 2 === 0 ? '-20px' : '20px'})` }}>

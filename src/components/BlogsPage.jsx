@@ -2,6 +2,12 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import BlogFormModal from './BlogFormModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import {
+    getCachedList,
+    setCachedList,
+    invalidateCache,
+    removeCachedItem,
+} from '../utils/blogCache';
 import '../styles/blogs.css';
 import '../styles/blog-form.css';
 
@@ -19,6 +25,7 @@ export default function BlogsPage() {
     const [blogs, setBlogs]               = useState([]);
     const [allBlogs, setAllBlogs]         = useState([]); // unfiltered store
     const [isLoading, setIsLoading]       = useState(true);
+    const [fromCache, setFromCache]       = useState(false);
     const [error, setError]               = useState(null);
     const [searchQuery, setSearchQuery]   = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
@@ -34,9 +41,27 @@ export default function BlogsPage() {
     const [toast, setToast] = useState(null); // { message, type }
     const showToast = useCallback((message, type = 'success') => setToast({ message, type }), []);
 
-    // ── Fetch all blogs ───────────────────────────────
-    const fetchBlogs = useCallback(() => {
+    // ── Apply fetched/cached array to state ───────────
+    const applyBlogs = useCallback((arr, cached = false) => {
+        setAllBlogs(arr);
+        setBlogs(arr.filter(b => b.status === 'published' && b.visibility === 'public'));
+        setFromCache(cached);
+    }, []);
+
+    // ── Fetch all blogs (with sessionStorage cache) ───
+    const fetchBlogs = useCallback((forceRefresh = false) => {
+        // Try cache first (skip if forceRefresh requested after a mutation)
+        if (!forceRefresh) {
+            const cached = getCachedList();
+            if (cached) {
+                applyBlogs(cached, true);
+                setIsLoading(false);
+                return;
+            }
+        }
+
         setIsLoading(true);
+        setFromCache(false);
         fetch(`${API_BASE}/`)
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -44,13 +69,12 @@ export default function BlogsPage() {
             })
             .then(data => {
                 const arr = Array.isArray(data) ? data : (data.blogs || data.data || []);
-                setAllBlogs(arr);
-                // Show only published + public by default (can be toggled)
-                setBlogs(arr.filter(b => b.status === 'published' && b.visibility === 'public'));
+                setCachedList(arr);          // persist to sessionStorage
+                applyBlogs(arr, false);
             })
             .catch(err => setError(err.message))
             .finally(() => setIsLoading(false));
-    }, []);
+    }, [applyBlogs]);
 
     useEffect(() => { fetchBlogs(); }, [fetchBlogs]);
 
@@ -84,7 +108,8 @@ export default function BlogsPage() {
 
     const handleFormSuccess = (saved) => {
         showToast(editingBlog ? '✅ Blog updated successfully!' : '🚀 Blog published successfully!');
-        fetchBlogs();
+        invalidateCache();           // bust the list + all detail caches
+        fetchBlogs(true);            // force fresh API fetch
     };
 
     const handleDeleteConfirm = async () => {
@@ -96,9 +121,12 @@ export default function BlogsPage() {
                 const json = await res.json().catch(() => ({}));
                 throw new Error(json.message || `HTTP ${res.status}`);
             }
+            // Optimistically remove from cache & state without a full refetch
+            removeCachedItem(deleteTarget.id, deleteTarget.slug);
+            setAllBlogs(prev => prev.filter(b => b.id !== deleteTarget.id));
+            setBlogs(prev => prev.filter(b => b.id !== deleteTarget.id));
             showToast('🗑️ Blog deleted successfully!');
             setDeleteTarget(null);
-            fetchBlogs();
         } catch (err) {
             showToast(`⚠ Delete failed: ${err.message}`, 'error');
         } finally {
@@ -121,6 +149,18 @@ export default function BlogsPage() {
                         Insights, articles &amp; technical deep-dives
                         {!isLoading && !error && (
                             <span className="blogs-count"> — {filteredBlogs.length} article{filteredBlogs.length !== 1 ? 's' : ''}</span>
+                        )}
+                        {!isLoading && fromCache && (
+                            <span className="blogs-cache-badge" title="Showing cached data — click to refresh from server">
+                                ⚡ cached
+                                <button
+                                    className="blogs-cache-refresh"
+                                    onClick={() => { invalidateCache(); fetchBlogs(true); }}
+                                    title="Force refresh from API"
+                                >
+                                    ↻
+                                </button>
+                            </span>
                         )}
                     </p>
                 </div>

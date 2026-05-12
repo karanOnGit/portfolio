@@ -48,17 +48,16 @@ export default function Scene() {
             <PerspectiveCamera makeDefault position={[0, 0, 12]} ref={cameraRef} />
 
             {/* Distant Sun in the bottom right corner */}
-            <Sun x={20} y={0} z={-250} />
+            {/* <Sun x={20} y={0} z={-250} /> */}
 
             {/* Space Lighting - Dramatic and cool */}
             <ambientLight intensity={0.05} color="#4040a0" />
-            <pointLight position={[-50, -20, -30]} intensity={1.5} color="#bf00ff" />
+            {/* <pointLight position={[-50, -20, -30]} intensity={1.5} color="#bf00ff" /> */}
 
             <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
                 <group>
-                    {/* Planet Core (Rotates Independently) */}
                     <group ref={planetRef}>
-                        <Sphere args={[2.5, 64, 64]}>
+                        <Sphere args={[1.5, 64, 64]}>
                             <meshStandardMaterial
                                 color="#1a1a3a"
                                 roughness={0.7}
@@ -66,7 +65,7 @@ export default function Scene() {
                             />
                         </Sphere>
                         {/* Atmosphere / Glow */}
-                        <Sphere args={[2.65, 64, 64]} ref={atmosphereRef}>
+                        {/* <Sphere args={[1, 64, 64]} ref={atmosphereRef}>
                             <meshPhongMaterial
                                 color="#4040ff"
                                 transparent
@@ -74,34 +73,31 @@ export default function Scene() {
                                 side={THREE.BackSide}
                                 blending={THREE.AdditiveBlending}
                             />
-                        </Sphere>
+                        </Sphere> */}
                     </group>
 
-                    {/* Particle Rings - Static Tilt, Internal Spin */}
-                    {/* Rotation: X-axis 70deg (tilt forward), Z-axis -20deg (diagonal tilt) */}
-                    <group rotation={[190 * Math.PI / 180, 0, -30 * Math.PI / 180]}>
-                        <RingParticles count={6000} radius={3} thickness={0.5} speed={0.03} />
-                        <RingParticles count={6000} radius={4} thickness={0.5} speed={0.06} />
-                        <RingParticles count={20000} radius={6} thickness={2.5} speed={0.09} />
-                    </group>
+                    {/* <group rotation={[210 * Math.PI / 180, 0, -30 * Math.PI / 180]}>
+                        <RingParticles count={2000} radius={1} thickness={0.5} speed={0.1} />
+                        <RingParticles count={4000} radius={2} thickness={0.5} speed={0.01} />
+                        <RingParticles count={20000} radius={4} thickness={2.5} speed={0.001} />
+                    </group> */}
                 </group>
             </Float>
 
-            <Asteroids />
+            {/* <Asteroids /> */}
 
-            {/* Nebula Clouds */}
-            <Cloud opacity={0.3} speed={0.4} width={10} depth={1.5} segments={20} position={[-5, 2, -10]} color="#bf00ff" />
-            <Cloud opacity={0.3} speed={0.4} width={10} depth={1.5} segments={20} position={[5, -2, -15]} color="#00f3ff" />
+            {/* <Cloud opacity={0.3} speed={0.4} width={10} depth={1.5} segments={20} position={[-5, 2, -10]} color="#bf00ff" />
+            <Cloud opacity={0.3} speed={0.4} width={10} depth={1.5} segments={20} position={[5, -2, -15]} color="#00f3ff" /> */}
 
-            <Particles count={3000} />
+            <Particles count={1000} />
             <Sparkles count={500} scale={12} size={2} speed={0.4} opacity={0.5} color="#fff" />
             <Stars radius={300} depth={50} count={10000} factor={4} saturation={1} fade speed={1.5} />
 
-            <Environment preset="city" />
+            <Environment preset="dawn" />
 
-            <EffectComposer>
+            {/* <EffectComposer>
                 <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={300} intensity={1.5} radius={0.6} />
-            </EffectComposer>
+            </EffectComposer> */}
         </>
     )
 }
