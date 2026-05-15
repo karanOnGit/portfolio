@@ -13,22 +13,22 @@ const CHAPTERS = [
     {
         year: '2002',
         era: 'Chapter 01 — The Origin',
-        title: 'Born in Rohtak, Haryana',
+        title: 'Born in Patna, Bihar',
         desc: 'A small-town beginning that would quietly plant seeds of curiosity. Childhood spent exploring, questioning how things worked — radios, calculators, TVs. A mind wired for systems from day one.',
-        tags: ['Haryana', 'Childhood', 'Curiosity'],
+        tags: ['Patna', 'Childhood', 'Curiosity'],
         image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80',
         imageCaption: '// humble beginnings',
         color: '#6366f1',
     },
     {
         year: '2010',
-        era: 'Chapter 02 — First Sparks',
-        title: 'First Computer. First Program.',
-        desc: 'Got access to a family desktop running Windows XP. Spent hours discovering Paint, then Notepad, then accidentally stumbling upon how HTML could make things appear on screen. The internet felt like a superpower.',
-        tags: ['Windows XP', 'HTML', 'Discovery'],
-        image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&q=80',
-        imageCaption: '// ctrl + alt + curiosity',
-        color: '#f59e0b',
+        era: 'Chapter 02 — Deconstruction',
+        title: 'First Encounter. First Teardown.',
+        desc: 'Driven by sheer curiosity about how voices came out of a box, I decided to investigate the family radio. My investigation quickly turned into a full teardown, breaking it into pieces I couldn\'t put back together. It earned me a legendary scolding from my parents, but sparked a lifelong need to see what\'s under the hood.',
+        tags: ['Hardware', 'Curiosity', 'Trouble'],
+        image: 'https://images.unsplash.com/photo-1592093518742-5950d85ab286?w=400&q=80',
+        imageCaption: '// disassembly successful, reassembly failed',
+        color: '#ef4444',
     },
     {
         year: '2014',
@@ -42,13 +42,13 @@ const CHAPTERS = [
     },
     {
         year: '2018',
-        era: 'Chapter 04 — The Decision',
-        title: 'Choosing Computer Science',
-        desc: 'Board exams done. The decision was clear — CS was the only path that felt like the future. Enrolled at Galgotias University. Moved to Greater Noida. Left the comfort zone. Embraced the chaos.',
-        tags: ['Galgotias', 'CS', 'New Chapter'],
-        image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80',
-        imageCaption: '// gateway to the digital world',
-        color: '#3b82f6',
+        era: 'Chapter 04 — The Foundation',
+        title: 'Acing the Boards. Choosing PCM.',
+        desc: 'Cleared the 10th board exams with a strong percentage, bringing a wave of pride and satisfaction to my parents. Their encouragement gave me the perfect green light to choose the PCM stream for class 11, a choice driven entirely by my deep fascination and love for Physics.',
+        tags: ['10th Boards', 'PCM', 'Physics'],
+        image: 'https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=400&q=80', // A physics/science-themed image
+        imageCaption: '// unlocking the laws of nature',
+        color: '#8b5cf6', // A thoughtful, deep purple
     },
     {
         year: '2020',
@@ -61,7 +61,7 @@ const CHAPTERS = [
         color: '#ec4899',
     },
     {
-        year: '2022',
+        year: '2021',
         era: 'Chapter 06 — First Real Work',
         title: 'Freelancing & First Clients',
         desc: 'Landed the first paid project — a healthcare mobile app for appointment scheduling. Deployed to real users. Real feedback. Real responsibility. That feeling of seeing strangers use something you built is irreplaceable.',
@@ -250,6 +250,7 @@ export default function RoadmapPage() {
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     >
                         {/* Polaroid image */}
+                        <div className="roadmap-chapter-year">{chapter.year}</div>
                         <div className="roadmap-polaroid" style={{ transform: `rotate(${activeChapter % 2 === 0 ? -2 : 2}deg)` }}>
                             <img
                                 src={chapter.image}
@@ -261,7 +262,6 @@ export default function RoadmapPage() {
 
                         {/* Text card */}
                         <div className="roadmap-chapter-card">
-                            <div className="roadmap-chapter-year">{chapter.year}</div>
                             <div className="roadmap-chapter-era">{chapter.era}</div>
                             <h2 className="roadmap-chapter-title"
                                 style={{ borderBottom: `2px solid ${chapter.color}30`, paddingBottom: '0.5rem' }}>
@@ -294,6 +294,10 @@ export default function RoadmapPage() {
             <div style={{
                 position: 'relative',
                 zIndex: 10,
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 padding: '8vw 10vw',
                 textAlign: 'center',
                 background: 'rgba(0,0,0,0.9)',

@@ -87,7 +87,7 @@ export default function Overlay() {
                     </p>
                 </AnimatedText>
 
-                <AnimatedText delay={1.4} style={{ marginTop: '2rem' }}>
+                <AnimatedText delay={1.4} style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
                     <Link
                         to="/blog"
                         style={{
@@ -106,6 +106,44 @@ export default function Overlay() {
                         onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                     >
                         VIEW BLOGS →
+                    </Link>
+                    <Link
+                        to="/my-interests"
+                        style={{
+                            display: 'inline-block',
+                            textDecoration: 'none',
+                            color: '#000',
+                            background: 'var(--color-accent)',
+                            padding: '0.65rem 2rem',
+                            borderRadius: '50px',
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            letterSpacing: '0.08em',
+                            transition: 'transform 0.25s, background 0.25s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
+                        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                    >
+                        MY INTERESTS →
+                    </Link>
+                    <Link
+                        to="/roadmap"
+                        style={{
+                            display: 'inline-block',
+                            textDecoration: 'none',
+                            color: '#000',
+                            background: 'var(--color-accent)',
+                            padding: '0.65rem 2rem',
+                            borderRadius: '50px',
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            letterSpacing: '0.08em',
+                            transition: 'transform 0.25s, background 0.25s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
+                        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                    >
+                        ROADMAP →
                     </Link>
                 </AnimatedText>
             </Section>

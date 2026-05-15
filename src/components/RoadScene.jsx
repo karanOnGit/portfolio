@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Stars, Sparkles, Environment } from '@react-three/drei';
+import { Stars, Sparkles, Environment, Text, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 /* ─────────────────────────────────────────────────────────
@@ -180,6 +180,67 @@ function FloatingDust() {
     );
 }
 
+/* ── Year Marker: floating year text + vertical connector lines ── */
+function YearMarker({ position, year, isActive }) {
+    const textY = position[1] + 3.8; // height of text above road
+    const lineTop = position[1] + 3.2;
+    const lineBot = position[1] + 0.1;
+    const offset = 0.9; // horizontal spread of the two lines
+
+    return (
+        <group>
+            {/* Left vertical line */}
+            <Line
+                points={[
+                    [position[0] - offset, lineBot, position[2]],
+                    [position[0] - offset, lineTop, position[2]],
+                ]}
+                color={isActive ? '#ffffff' : '#555566'}
+                lineWidth={isActive ? 1.5 : 0.8}
+                transparent
+                opacity={isActive ? 0.9 : 0.45}
+            />
+            {/* Right vertical line */}
+            <Line
+                points={[
+                    [position[0] + offset, lineBot, position[2]],
+                    [position[0] + offset, lineTop, position[2]],
+                ]}
+                color={isActive ? '#ffffff' : '#555566'}
+                lineWidth={isActive ? 1.5 : 0.8}
+                transparent
+                opacity={isActive ? 0.9 : 0.45}
+            />
+            {/* Horizontal crossbar */}
+            <Line
+                points={[
+                    [position[0] - offset, lineTop, position[2]],
+                    [position[0] + offset, lineTop, position[2]],
+                ]}
+                color={isActive ? '#ffffff' : '#444455'}
+                lineWidth={isActive ? 1.2 : 0.6}
+                transparent
+                opacity={isActive ? 0.7 : 0.3}
+            />
+            {/* Year text */}
+            <Text
+                position={[position[0], textY, position[2]]}
+                fontSize={0.55}
+                color={isActive ? '#ffffff' : '#888899'}
+                font={undefined}
+                anchorX="center"
+                anchorY="middle"
+                letterSpacing={0.12}
+                outlineWidth={isActive ? 0.04 : 0}
+                outlineColor="#000000"
+                fillOpacity={isActive ? 1 : 0.55}
+            >
+                {year}
+            </Text>
+        </group>
+    );
+}
+
 /* ── Main exported 3D Scene ── */
 export default function RoadScene({ scrollProgress, chapters, activeChapter }) {
     const cameraRef = useRef();
@@ -220,6 +281,16 @@ export default function RoadScene({ scrollProgress, chapters, activeChapter }) {
         [path, chapters]
     );
 
+    // Year marker positions — on the road center line
+    const yearPositions = useMemo(() =>
+        chapters.map((ch, i) => {
+            const t = i / (chapters.length - 1);
+            const pt = path.getPoint(t);
+            return { pos: [pt.x, pt.y, pt.z], year: ch.year };
+        }),
+        [path, chapters]
+    );
+
     return (
         <>
             {/* Camera is handled via useFrame above */}
@@ -236,7 +307,17 @@ export default function RoadScene({ scrollProgress, chapters, activeChapter }) {
             ))}
             <CenterLines path={path} />
             <EdgePosts path={path} />
-            <RoadLights path={path} count={chapters.length * 2} />
+            {/* <RoadLights path={path} count={chapters.length * 2} /> */}
+
+            {/* Year labels above center line */}
+            {yearPositions.map(({ pos, year }, i) => (
+                <YearMarker
+                    key={i}
+                    position={pos}
+                    year={year}
+                    isActive={activeChapter === i}
+                />
+            ))}
 
             {/* Milestones */}
             {milestones.map((pos, i) => (
