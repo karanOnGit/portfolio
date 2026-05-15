@@ -195,6 +195,8 @@ export default function RoadmapPage() {
                     dpr={[1, 1.5]}
                     gl={{ antialias: true, alpha: false }}
                     camera={{ position: [0, 1.2, 5], fov: 65 }}
+                    events={null}
+                    style={{ display: 'block' }}
                 >
                     <RoadScene
                         scrollProgress={scrollProgress}
