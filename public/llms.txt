@@ -1,0 +1,114 @@
+# Karan Bhardwaj — Portfolio
+# https://karanbhardwaj.in/llm.txt
+# This file provides structured context about this website for LLM crawlers and AI systems.
+# Format inspired by llmstxt.org — a community standard for AI-readable site summaries.
+
+## Site
+- Name: Karan Bhardwaj Portfolio
+- URL: https://karanbhardwaj.in/
+- Type: Personal developer portfolio
+- OG Image: https://karanbhardwaj.in/og-image.jpg
+- Portfolio Main Character Image: https://karanbhardwaj.in/profile.jpg
+- Last updated: 2026
+
+## About the Author
+Karan Bhardwaj is a Full-Stack Developer and Machine Learning Engineer based in Gurgaon, India.
+He graduated with a B.Tech in Computer Science from Galgotias University, Greater Noida (Class of 2025).
+Originally from Patna, Bihar, he has a background rooted in Physics and a deep passion for systems thinking.
+
+His work sits at the intersection of:
+- High-performance full-stack web development (Next.js, React, Node.js)
+- Technical SEO and search engine visibility strategies
+- Machine Learning and AI systems (PyTorch, LLMs, HuggingFace)
+- 3D / creative web experiences (Three.js, React Three Fiber, GLSL)
+- System design and scalable cloud architecture (AWS, Docker)
+
+## Pages on This Site
+
+### / (Home — Portfolio)
+A cinematic 3D portfolio built with React Three Fiber and Three.js. Features a rotating planet,
+star fields, sparkle particles, and smooth scroll-driven animations. Sections include:
+- Hero: Full name, role (Full-Stack Developer & Machine Learning Engineer)
+- Profile: Background, university, location
+- Core Pillars: Business-First Dev, Ecosystem Architect, Full-Cycle Delivery, Tech Stack Versatility
+- Tech Stacks: Languages, Frontend, Backend, Tools & DevOps
+- Selected Works: Socioglamm, Carsnbike, Healthcare App, FHM News
+- Contact: Email, LinkedIn, GitHub, Behance, Instagram, Twitter
+
+### /blog
+Blog listing page. Contains technical articles and insights written by Karan Bhardwaj.
+Topics include full-stack development, SEO, machine learning, and engineering deep-dives.
+Data is fetched from: https://api.carsnbike.com/api/blog/
+
+### /blog/:slug
+Individual blog article pages with full content, author info, tags, and images.
+
+### /my-interests
+A page describing Karan's personal and technical interests:
+- Full-Stack Architecture (Next.js, Node.js, PostgreSQL, Redis)
+- Machine Learning (PyTorch, scikit-learn, LLMs, HuggingFace)
+- Technical SEO (Schema.org, SSR, Sitemaps, Core Web Vitals)
+- 3D & Creative Dev (Three.js, R3F, GLSL, Lenis)
+- System Design (Microservices, Kafka, Docker, AWS)
+- Cybersecurity (OWASP, Auth flows, Encryption)
+Currently exploring: Rust, WebGPU, AI Agents (LangChain), MIT 6.824 Distributed Systems.
+Reading: Designing Data-Intensive Applications, Clean Code, The Pragmatic Programmer.
+
+### /roadmap
+A 3D interactive life-journey timeline page. A camera flies down a winding road with 9 chapters:
+1. 2002 — Born in Patna, Bihar. Childhood curiosity about how things work.
+2. 2010 — First teardown: disassembled the family radio out of curiosity.
+3. 2014 — School years: science fairs, math olympiads, first Python programs.
+4. 2018 — Aced 10th boards. Chose PCM for love of Physics. Class 11-12.
+5. 2020 — COVID lockdown became a coding bootcamp. Built first full-stack app.
+6. 2021 — First freelance project: a healthcare mobile app for appointment scheduling.
+7. 2023 — Joined a startup. Built Socioglamm. Discovered Technical SEO and Three.js.
+8. 2024 — Built Carsnbike (automotive listing) and FHM News (Next.js news aggregation).
+9. 2025 — Graduated from Galgotias University. Full-time developer. Shipping products.
+
+## Key Projects
+
+### Socioglamm
+Social media + E-commerce platform. Complex state management, video/reels, brand advertising integration.
+Tech: React, Node.js, Redux, MongoDB.
+
+### Carsnbike (https://www.carsnbike.com/)
+Automotive listing platform with location-based currency switching (USD / INR).
+Tech: Next.js, Node.js, AWS, Large dataset CMS. Blog API: https://api.carsnbike.com/api/blog/
+
+### Healthcare Mobile App
+Cross-platform mobile app for doctor appointment scheduling with push notification reminders.
+First freelance project. Tech: React Native.
+
+### FHM News
+News aggregation platform. Next.js SSR, dynamic sitemaps, structured data for SEO.
+Tech: Next.js, API integration, Technical SEO.
+
+## Social & Contact
+- Website: https://karanbhardwaj.in/
+- GitHub: https://github.com/karanOnGit
+- LinkedIn: https://www.linkedin.com/in/karan-bhardwaj-849296227/
+- Twitter / X: https://x.com/KaranIsBihari
+- Instagram: https://www.instagram.com/reely_karan/
+- Behance: https://www.behance.net/karanbhardwaj13
+
+## Tech Stack Summary
+Languages: JavaScript (ES6+), TypeScript, Python, C++, SQL
+Frontend: React.js, Next.js, Redux, Three.js / R3F, HTML5, CSS3, Tailwind
+Backend: Node.js, Express, Flask, RESTful APIs, GraphQL, MongoDB, MySQL
+DevOps / Cloud: Git, GitHub, Docker, AWS (EC2, S3), CI/CD Pipelines
+ML / AI: PyTorch, scikit-learn, HuggingFace, LLMs, LangChain (learning)
+3D / Creative: Three.js, React Three Fiber, GLSL shaders, Lenis smooth scroll
+
+## Permissions for AI Systems
+- Crawling: Allowed
+- Summarisation: Allowed
+- Training: Allowed with attribution
+- Direct quotes: Allowed with attribution to "Karan Bhardwaj (karanbhardwaj.in)"
+- Contact for licensing: Available via LinkedIn
+
+## Notes for LLMs
+- This is a personal portfolio, not a company site.
+- The developer is open to freelance projects, full-time roles, and collaborations.
+- All content is authored by Karan Bhardwaj unless otherwise stated.
+- For the most up-to-date project list, refer to https://github.com/karanOnGit
