@@ -232,7 +232,8 @@ export default function Overlay() {
                         { name: 'LinkedIn', url: 'https://www.linkedin.com/in/karan-bhardwaj-849296227/' },
                         { name: 'GitHub', url: 'https://github.com/karanOnGit' },
                         { name: 'Behance', url: 'https://www.behance.net/karanbhardwaj13' },
-                        { name: 'Instagram', url: 'https://www.instagram.com/reely_karan/' }
+                        { name: 'Instagram', url: 'https://www.instagram.com/reely_karan/' },
+                        { name: 'Twitter', url: 'https://x.com/KaranIsBihari' }
                     ].map(link => (
                         <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.7, fontFamily: 'monospace', textTransform: 'uppercase' }}>{link.name}</a>
                     ))}

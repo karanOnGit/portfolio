@@ -1,0 +1,374 @@
+/* =====================================================
+   MY INTERESTS PAGE — Vanilla CSS
+   Matches portfolio dark theme (Deep Void Black / Silver)
+   ===================================================== */
+
+/* ── Page Shell ──────────────────────────────────────── */
+.interests-page {
+    min-height: 100vh;
+    padding: 6vw 10vw;
+    background: var(--color-bg, #020203);
+    color: var(--color-text, #fff);
+    font-family: var(--font-body, 'Space Grotesk', sans-serif);
+    overflow-x: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.interests-header {
+    margin-bottom: 5rem;
+}
+
+.interests-title {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #fff;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.interests-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.06em;
+    max-width: 540px;
+    line-height: 1.7;
+}
+
+/* ── Section Label ───────────────────────────────────── */
+.interests-section-label {
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #C0C0C0;
+    opacity: 0.6;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.interests-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(192,192,192,0.2), transparent);
+}
+
+/* ── Interest Cards Grid ─────────────────────────────── */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 6rem;
+}
+
+/* ── Interest Card ───────────────────────────────────── */
+.interest-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow: hidden;
+    cursor: default;
+    transition:
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s,
+        box-shadow 0.4s;
+}
+
+.interest-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.4s;
+    background: radial-gradient(ellipse at 30% 30%, var(--card-glow, rgba(192,192,192,0.06)) 0%, transparent 70%);
+}
+
+.interest-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(192, 192, 192, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.interest-card:hover::before {
+    opacity: 1;
+}
+
+/* ── Card Icon ───────────────────────────────────────── */
+.interest-card-icon {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;
+}
+
+.interest-card:hover .interest-card-icon {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
+}
+
+/* ── Card Title ──────────────────────────────────────── */
+.interest-card-title {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+/* ── Card Tag ────────────────────────────────────────── */
+.interest-card-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 0.9rem;
+    background: rgba(192, 192, 192, 0.08);
+    border: 1px solid rgba(192, 192, 192, 0.15);
+    color: #C0C0C0;
+}
+
+/* ── Card Desc ───────────────────────────────────────── */
+.interest-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Skill Pills inside cards ────────────────────────── */
+.interest-card-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+}
+
+.interest-pill {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.55);
+    font-family: monospace;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, color 0.2s;
+}
+
+.interest-card:hover .interest-pill {
+    background: rgba(192, 192, 192, 0.07);
+    color: rgba(192, 192, 192, 0.8);
+}
+
+/* ── Featured / Wide Card ────────────────────────────── */
+.interest-card--wide {
+    grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+    .interest-card--wide {
+        grid-column: span 1;
+    }
+}
+
+/* ── Currently Exploring ─────────────────────────────── */
+.exploring-section {
+    margin-bottom: 6rem;
+}
+
+.exploring-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.exploring-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    transition: border-color 0.25s, background 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.exploring-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #C0C0C0, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.exploring-item:hover {
+    border-color: rgba(192, 192, 192, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.exploring-item:hover::after {
+    opacity: 1;
+}
+
+.exploring-num {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.06);
+    min-width: 2.5rem;
+    line-height: 1;
+    user-select: none;
+}
+
+.exploring-text h3 {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.exploring-text p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.65;
+}
+
+.exploring-badge {
+    margin-left: auto;
+    align-self: center;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.75rem;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.exploring-badge--active {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+.exploring-badge--learning {
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.18);
+    color: #facc15;
+}
+
+.exploring-badge--planned {
+    background: rgba(192, 192, 192, 0.07);
+    border: 1px solid rgba(192, 192, 192, 0.15);
+    color: rgba(192, 192, 192, 0.7);
+}
+
+/* ── Manifesto / Quote Strip ─────────────────────────── */
+.interests-manifesto {
+    margin-bottom: 6rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.interests-manifesto blockquote {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+}
+
+.interests-manifesto cite {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+/* ── Reading / Media List ────────────────────────────── */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 6rem;
+}
+
+.media-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    transition: transform 0.3s, border-color 0.25s;
+    cursor: default;
+}
+
+.media-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 192, 192, 0.15);
+}
+
+.media-item-type {
+    font-size: 0.63rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: monospace;
+    margin-bottom: 0.5rem;
+}
+
+.media-item-title {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.media-item-by {
+    font-size: 0.78rem;
+    color: #C0C0C0;
+    opacity: 0.65;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .interests-page {
+        padding: 8vw 6vw;
+    }
+
+    .exploring-item {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .exploring-badge {
+        margin-left: 0;
+    }
+}

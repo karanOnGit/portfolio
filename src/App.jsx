@@ -7,6 +7,8 @@ import Overlay from './components/Overlay';
 import CustomCursor from './components/CustomCursor';
 import BlogsPage from './components/BlogsPage';
 import BlogDetailPage from './components/BlogDetailPage';
+import MyInterestsPage from './components/MyInterestsPage';
+import RoadmapPage from './components/RoadmapPage';
 
 function Portfolio() {
     useEffect(() => {
@@ -47,6 +49,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Portfolio />} />
                 <Route path="/blog" element={<BlogsPage />} />
+                <Route path="/my-interests" element={<MyInterestsPage />} />
+                <Route path="/roadmap" element={<RoadmapPage />} />
                 <Route path="/blog/:slug" element={<BlogDetailPage />} />
             </Routes>
         </BrowserRouter>
