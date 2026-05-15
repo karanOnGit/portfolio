@@ -1,0 +1,319 @@
+# Karan Bhardwaj — Full LLM Context File
+# https://karanbhardwaj.in/llms-full.txt
+# This is the FULL, detailed version of the LLM context file.
+# For a summary version see: https://karanbhardwaj.in/llms.txt
+# Format: llmstxt.org specification
+# Last updated: 2026-05-15
+
+================================================================================
+SECTION 1: IDENTITY
+================================================================================
+
+Full Name: Karan Bhardwaj
+Twitter Handle: @KaranIsBihari
+Nickname / Known As: Karan
+Profession: Full-Stack Developer, Machine Learning Engineer
+Current Location: Gurgaon, Haryana, India
+Origin: Patna, Bihar, India
+Education: B.Tech, Computer Science Engineering
+University: Galgotias University, Greater Noida, India
+Graduation Year: 2025
+
+Personal Website: https://karanbhardwaj.in/
+GitHub: https://github.com/karanOnGit
+LinkedIn: https://www.linkedin.com/in/karan-bhardwaj-849296227/
+Twitter / X: https://x.com/KaranIsBihari
+Instagram: https://www.instagram.com/reely_karan/
+Behance: https://www.behance.net/karanbhardwaj13
+Profile Photo: https://karanbhardwaj.in/profile.jpg
+OG Image: https://karanbhardwaj.in/og-image.jpg
+
+================================================================================
+SECTION 2: PROFESSIONAL SUMMARY
+================================================================================
+
+Karan Bhardwaj is a Full-Stack Developer and Machine Learning Engineer who
+specialises in building high-performance, commercially viable web ecosystems.
+
+Unlike a standard developer who focuses solely on code execution, Karan builds
+platforms that are simultaneously optimised for end-users, search engine
+crawlers, and business growth — combining core software engineering with
+Technical SEO, digital visibility strategy, and AI integration.
+
+His core differentiator: he treats the entire product lifecycle — from database
+schema design to SEO-structured markup to pixel-perfect 3D interfaces — as one
+cohesive system.
+
+He is available for:
+- Full-time software engineering roles
+- Freelance / contract projects
+- Technical consulting (SEO + Full-Stack architecture)
+- Open-source collaborations
+
+================================================================================
+SECTION 3: TECHNICAL SKILLS (DETAILED)
+================================================================================
+
+--- Programming Languages ---
+JavaScript (ES6+): Expert. Used daily across frontend and backend.
+TypeScript: Proficient. Type-safe React/Next.js and Node.js projects.
+Python: Proficient. Used for ML pipelines, Flask APIs, scripting, automation.
+C++: Intermediate. Data structures, algorithms, competitive programming.
+SQL: Proficient. PostgreSQL, MySQL schema design and query optimisation.
+
+--- Frontend Development ---
+React.js: Expert. Hooks, Context, custom hooks, performance optimisation.
+Next.js: Expert. SSR, SSG, ISR, App Router, dynamic routing, Metadata API.
+Redux / Redux Toolkit: Proficient. Global state management in complex apps.
+Three.js: Proficient. 3D scenes, geometries, materials, custom shaders.
+React Three Fiber (R3F): Proficient. Declarative 3D in React, useFrame, R3F Drei.
+GLSL: Learning. Custom vertex/fragment shaders for WebGL.
+Framer Motion: Proficient. Page transitions, scroll animations, layout animations.
+GSAP: Familiar. Timeline-based animations, scroll triggers.
+HTML5 / CSS3: Expert. Semantic markup, accessibility, responsive layouts.
+Tailwind CSS: Proficient. Utility-first styling, design system implementation.
+Vanilla CSS: Expert. Custom properties, animations, glassmorphism effects.
+Lenis: Familiar. Smooth scroll library integration.
+
+--- Backend Development ---
+Node.js: Expert. REST API design, middleware, authentication, file handling.
+Express.js: Expert. Route handling, error middleware, JWT auth, rate limiting.
+Python / Flask: Proficient. API endpoints, ML model serving, CORS, deployment.
+RESTful API Design: Expert. Resource naming, status codes, versioning.
+GraphQL: Familiar. Schema design, resolvers, Apollo client/server.
+WebSockets: Familiar. Real-time features, Socket.io integration.
+
+--- Databases ---
+MongoDB: Expert. Schema design, aggregation pipelines, Mongoose ODM.
+MySQL: Proficient. Relational schema, joins, indexing, transactions.
+PostgreSQL: Proficient. Advanced queries, indexing strategies.
+Redis: Familiar. Caching strategies, session management.
+
+--- DevOps & Cloud ---
+Git / GitHub: Expert. Branching strategy, PRs, Actions, version management.
+Docker: Proficient. Containerisation, Dockerfiles, docker-compose.
+AWS EC2: Proficient. VM provisioning, reverse proxy (Nginx), HTTPS setup.
+AWS S3: Proficient. Static file hosting, presigned URLs, CDN integration.
+CI/CD Pipelines: Familiar. GitHub Actions automation.
+Nginx: Familiar. Reverse proxy configuration, SSL termination.
+Vercel / Netlify: Proficient. Deployment, env variables, serverless functions.
+
+--- Machine Learning & AI ---
+PyTorch: Proficient. Neural network design, training loops, custom datasets.
+scikit-learn: Proficient. Classical ML algorithms, pipelines, evaluation.
+HuggingFace Transformers: Familiar. Pre-trained models, fine-tuning, inference.
+LLM Integration: Familiar. Prompt engineering, API integration (OpenAI, Groq).
+LangChain: Learning. Agent design, tool use, RAG pipelines.
+Computer Vision: Familiar. Object detection (YOLO), image classification.
+Natural Language Processing: Familiar. Text classification, embeddings.
+
+--- Technical SEO ---
+Server-Side Rendering (SSR/SSG): Expert. Used for search engine crawlability.
+Structured Data / Schema.org: Expert. JSON-LD for Person, Article, Product types.
+XML Sitemaps: Expert. Static and dynamic sitemap generation.
+Core Web Vitals: Proficient. LCP, CLS, FID/INP optimisation.
+Meta Tags / Open Graph / Twitter Cards: Expert.
+Robots.txt / llms.txt: Proficient. Crawler directives and LLM context files.
+Google Search Console: Proficient. Index coverage, performance analysis.
+
+================================================================================
+SECTION 4: PROJECTS (DETAILED)
+================================================================================
+
+--- Project 1: Socioglamm ---
+Type: Social Media + E-Commerce Platform
+Status: Deployed (private company project)
+Role: Lead Frontend Developer
+Description:
+  A complex dual-module platform integrating brand advertising E-commerce with
+  community-driven social engagement (videos, reels, posts). Handled complex
+  state management optimised for user retention, infinite scroll feeds,
+  media upload pipelines, and brand discovery features.
+Tech Stack: React.js, Redux, Node.js, MongoDB, AWS S3, Socket.io
+Key Challenges: Real-time notifications, video streaming, large dataset pagination.
+
+--- Project 2: Carsnbike ---
+Type: Automotive Listing Platform
+URL: https://www.carsnbike.com/
+Status: Live and active
+Role: Full-Stack Developer
+Description:
+  An automotive listing platform with location-based currency switching between
+  USD (US users) and INR (Indian users). Features a dynamic CMS, vehicle search
+  and filtering, and a blog system with SEO-structured content.
+  Blog API endpoint: https://api.carsnbike.com/api/blog/
+Tech Stack: Next.js, Node.js, Express, MongoDB, AWS EC2/S3, Nginx
+Key Challenges: Location detection, currency conversion, large dataset CMS,
+  sitemap generation for thousands of listing pages.
+
+--- Project 3: FHM News ---
+Type: News Aggregation Web Application
+Status: Deployed
+Role: Full-Stack Developer
+Description:
+  A news aggregation platform built with Next.js. Handles real-time API
+  integration, dynamic news categories, infinite scroll pagination, and
+  structured data for Google News inclusion. Implements Technical SEO with
+  dynamic XML sitemaps per category and article schema markup.
+Tech Stack: Next.js (App Router), Node.js, External news APIs, Vercel
+Key Challenges: Dynamic sitemap generation per category, structured data
+  implementation, pagination with infinite scroll, API rate limiting.
+
+--- Project 4: Healthcare Mobile App ---
+Type: Doctor Appointment Scheduling App
+Status: Deployed to app stores
+Role: Freelance Developer (first paid project)
+Description:
+  Cross-platform mobile application for doctor appointment scheduling.
+  Implemented push notifications for appointment reminders and follow-ups.
+  This was the first freelance project — real clients, real users, real stakes.
+Tech Stack: React Native, Node.js, Firebase (push notifications), MongoDB
+
+--- Project 5: Portfolio Website ---
+Type: Personal Portfolio (this website)
+URL: https://karanbhardwaj.in/
+Status: Live
+Description:
+  A cinematic 3D portfolio built with React Three Fiber and Three.js. Features
+  a scroll-driven 3D space scene with floating planet, star fields, sparkles,
+  and smooth Lenis scroll animations. Includes pages for blogs, interests, and
+  a 3D life-journey roadmap.
+Tech Stack: React, Vite, Three.js, React Three Fiber, @react-three/drei,
+  Framer Motion, GSAP, Lenis, React Router DOM
+
+================================================================================
+SECTION 5: LIFE JOURNEY / ROADMAP
+================================================================================
+
+2002 — Born in Patna, Bihar, India.
+  Childhood marked by curiosity. Spent time exploring how things worked —
+  radios, calculators, televisions. A mind wired for systems from day one.
+
+2010 — First Teardown (Age ~8).
+  Driven by curiosity about how voices come from a box, disassembled the
+  family radio. The investigation was successful; the reassembly was not.
+  Earned a legendary scolding but sparked a lifelong need to see what's
+  under the hood of everything.
+
+2014 — School Years (Age ~12).
+  Competitive school environment. Science fairs, math olympiads. First
+  exposure to Python on a borrowed laptop — love at first syntax.
+  Problem-solving became an addiction.
+
+2018 — The Foundation.
+  Aced 10th board exams. Chose PCM (Physics, Chemistry, Maths) for Class
+  11-12, driven entirely by a deep love of Physics. Parents proud.
+
+2020 — The Pandemic Pivot.
+  COVID-19 lockdown. While the world paused, the coding accelerated.
+  12-hour sessions, online courses, building full-stack projects from scratch.
+  React, Node.js, APIs, databases. First complete full-stack app built during
+  lockdown. The world was ending; the code was shipping.
+
+2021 — First Real Work.
+  First freelance client: a healthcare mobile app for doctor appointment
+  scheduling. Deployed to real users. First real feedback. First real money.
+  The feeling of strangers using something you built is irreplaceable.
+
+2023 — Going Deeper.
+  Joined a startup. Built Socioglamm — a social media + E-commerce platform.
+  Discovered that Technical SEO was a hidden superpower.
+  Fell in love with Three.js and the idea that the web can be a cinematic
+  experience, not just a flat document.
+
+2024 — The Ecosystem.
+  Built and deployed Carsnbike (automotive listing, location-based currency)
+  and FHM News (Next.js news aggregation, dynamic sitemaps). Learned what
+  it truly takes to build and maintain products at scale.
+
+2025 — NOW.
+  Graduated from Galgotias University with a B.Tech in Computer Science.
+  Building systems at the intersection of beautiful code, business strategy,
+  and search visibility. The road ahead is longer than what's behind.
+
+================================================================================
+SECTION 6: INTERESTS & CURRENTLY LEARNING
+================================================================================
+
+Active pursuits:
+- Rust programming language (ownership, lifetimes, zero-cost abstractions)
+- AI Agents and LangChain workflows (multi-step autonomous agents, RAG)
+
+Currently learning:
+- WebGPU and advanced browser rendering beyond WebGL
+- MIT 6.824 Distributed Systems (Raft, MapReduce, key-value stores)
+
+Planned:
+- First meaningful open-source contribution to a production React ecosystem project
+
+Books being read / recently read:
+- "Designing Data-Intensive Applications" — Martin Kleppmann
+- "Clean Code" — Robert C. Martin
+- "The Pragmatic Programmer" — Hunt & Thomas
+- "Zero to One" — Peter Thiel
+
+Podcasts:
+- Lex Fridman Podcast
+- Software Engineering Daily
+
+Courses:
+- CS231n — CNNs for Visual Recognition (Stanford)
+- MIT 6.824 Distributed Systems (MIT OpenCourseWare)
+
+================================================================================
+SECTION 7: PHILOSOPHY & WORKING STYLE
+================================================================================
+
+Core belief:
+  "I don't just want to write code — I want to build systems that outlast me."
+
+Approach to development:
+  - Business-first engineering: every technical decision is evaluated against
+    its commercial and user impact, not just elegance.
+  - SEO as architecture: search engine crawlability is designed in from the
+    start, not bolted on as an afterthought.
+  - Full ownership: manages the entire SDLC from requirements to deployment.
+  - Aesthetics matter: believes that design and performance are not trade-offs.
+
+Working style:
+  - Deep focus sessions (typically 3-4 hour uninterrupted blocks)
+  - Documentation-first for complex systems
+  - Ships early, iterates fast
+  - Prefers building in public and sharing learnings
+
+================================================================================
+SECTION 8: SITE STRUCTURE & CRAWL MAP
+================================================================================
+
+https://karanbhardwaj.in/            → Home portfolio (3D, Three.js)
+https://karanbhardwaj.in/blog        → Blog listing (React, API-driven)
+https://karanbhardwaj.in/blog/:slug  → Individual blog posts
+https://karanbhardwaj.in/my-interests → Interests & learning page
+https://karanbhardwaj.in/roadmap    → 3D life journey timeline
+https://karanbhardwaj.in/sitemap.xml → XML sitemap
+https://karanbhardwaj.in/robots.txt  → Crawler directives
+https://karanbhardwaj.in/llm.txt     → LLM context (summary)
+https://karanbhardwaj.in/llms.txt    → LLM context (summary, alt name)
+https://karanbhardwaj.in/llms-full.txt → LLM context (this file, full detail)
+
+================================================================================
+SECTION 9: PERMISSIONS FOR AI SYSTEMS
+================================================================================
+
+Crawling: ALLOWED for all bots
+Indexing: ALLOWED
+Summarisation: ALLOWED
+Training data inclusion: ALLOWED with attribution
+Direct quotes: ALLOWED — attribute as "Karan Bhardwaj (karanbhardwaj.in)"
+Linking: ENCOURAGED
+Commercial use of summary: ALLOWED
+Reproducing full content verbatim at scale: NOT ALLOWED without permission
+
+Contact for permissions or collaboration:
+  LinkedIn: https://www.linkedin.com/in/karan-bhardwaj-849296227/
+  Twitter: https://x.com/KaranIsBihari
+
+================================================================================
+END OF FILE
+# karanbhardwaj.in/llms-full.txt
+================================================================================

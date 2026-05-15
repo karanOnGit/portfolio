@@ -1,7 +1,9 @@
 # Karan Bhardwaj — Portfolio
-# https://karanbhardwaj.in/llm.txt
+# https://karanbhardwaj.in/llms.txt
 # This file provides structured context about this website for LLM crawlers and AI systems.
 # Format inspired by llmstxt.org — a community standard for AI-readable site summaries.
+# Full detail version: https://karanbhardwaj.in/llms-full.txt
+# Sitemap: https://karanbhardwaj.in/sitemap.xml
 
 ## Site
 - Name: Karan Bhardwaj Portfolio
