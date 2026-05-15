@@ -1,33 +1,37 @@
 # robots.txt — karanbhardwaj.in
-# Allow all search engine crawlers and LLM bots full access.
+# Maintained manually. Cloudflare-managed robots.txt has been disabled.
+# All crawlers and LLM bots are explicitly ALLOWED.
+# Sitemap: https://karanbhardwaj.in/sitemap.xml
 
-# ── Standard search engines ──────────────────────────────
+# ── Default: allow all ───────────────────────────────────
+User-agent: *
+Allow: /
+
+# ── Google ───────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# Allow Google to use content for AI (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# ── Bing / Microsoft Copilot ─────────────────────────────
 User-agent: Bingbot
 Allow: /
 
-User-agent: Slurp
+User-agent: msnbot
 Allow: /
 
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-# ── LLM & AI crawlers ────────────────────────────────────
-# OpenAI / ChatGPT
+# ── OpenAI — ChatGPT, Search, Browsing ───────────────────
 User-agent: GPTBot
 Allow: /
 
@@ -37,7 +41,7 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-# Anthropic / Claude
+# ── Anthropic — Claude ───────────────────────────────────
 User-agent: ClaudeBot
 Allow: /
 
@@ -47,64 +51,76 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-# Perplexity
+# ── Perplexity ───────────────────────────────────────────
 User-agent: PerplexityBot
 Allow: /
 
-# Meta / Llama
-User-agent: FacebookBot
+# ── Meta — Llama, Facebook AI ────────────────────────────
+User-agent: Facebookbot
 Allow: /
 
-User-agent: Meta-ExternalAgent
+User-agent: meta-externalagent
 Allow: /
 
 User-agent: Meta-ExternalFetcher
 Allow: /
 
-# Google Gemini / Bard
-User-agent: Google-Extended
+# ── Amazon — Alexa, Bedrock ──────────────────────────────
+User-agent: Amazonbot
 Allow: /
 
-# Microsoft Copilot
-User-agent: Bingbot
-Allow: /
-
-# Cohere
-User-agent: cohere-ai
-Allow: /
-
-# Common Crawl (major LLM training source)
-User-agent: CCBot
-Allow: /
-
-# Amazon / Alexa
 User-agent: ia_archiver
 Allow: /
 
-# Diffbot (used by many AI companies)
-User-agent: Diffbot
+# ── Apple ────────────────────────────────────────────────
+User-agent: Applebot
 Allow: /
 
-# Bytespider (TikTok / ByteDance)
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Common Crawl (trains most open-source LLMs) ──────────
+User-agent: CCBot
+Allow: /
+
+# ── Cohere ───────────────────────────────────────────────
+User-agent: cohere-ai
+Allow: /
+
+# ── ByteDance / TikTok ───────────────────────────────────
 User-agent: Bytespider
 Allow: /
 
-# Semrush / Ahrefs (SEO tools — help with ranking signals)
+# ── Diffbot (used by many AI pipelines) ──────────────────
+User-agent: Diffbot
+Allow: /
+
+# ── Cloudflare ───────────────────────────────────────────
+User-agent: CloudflareBrowserRenderingCrawler
+Allow: /
+
+# ── SEO tools (help ranking signals) ─────────────────────
 User-agent: SemrushBot
 Allow: /
 
 User-agent: AhrefsBot
 Allow: /
 
-# ── Catch-all: allow everything else ─────────────────────
-User-agent: *
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Slurp
 Allow: /
 
 # ── Sitemaps ─────────────────────────────────────────────
 Sitemap: https://karanbhardwaj.in/sitemap.xml
 
-# ── LLM context files (explicitly advertise to crawlers) ─
-# LLM-readable site context:
-# https://karanbhardwaj.in/llm.txt
+# ── LLM context files ────────────────────────────────────
 # https://karanbhardwaj.in/llms.txt
 # https://karanbhardwaj.in/llms-full.txt
