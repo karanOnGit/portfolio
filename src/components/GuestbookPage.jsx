@@ -48,7 +48,7 @@ export default function GuestbookPage() {
             return;
         }
 
-        if (API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        if (API_URL === 'https://script.google.com/macros/s/AKfycbx8VgsTao4Wl_YKAXXJu41lSMDT-aXBaXyPGXo5ZbhMCJuvmVGP8e9U8A6eEYFdvW4u/exec') {
             setStatus({ type: 'error', text: 'API URL not configured yet. Check implementation_plan.md' });
             return;
         }
