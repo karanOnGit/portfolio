@@ -9,6 +9,7 @@ import BlogsPage from './components/BlogsPage';
 import BlogDetailPage from './components/BlogDetailPage';
 import MyInterestsPage from './components/MyInterestsPage';
 import RoadmapPage from './components/RoadmapPage';
+import GuestbookPage from './components/GuestbookPage';
 
 function Portfolio() {
     useEffect(() => {
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/blog" element={<BlogsPage />} />
                 <Route path="/my-interests" element={<MyInterestsPage />} />
                 <Route path="/roadmap" element={<RoadmapPage />} />
+                <Route path="/guestbook" element={<GuestbookPage />} />
                 <Route path="/blog/:slug" element={<BlogDetailPage />} />
             </Routes>
         </BrowserRouter>

@@ -145,6 +145,25 @@ export default function Overlay() {
                     >
                         ROADMAP →
                     </Link>
+                    <Link
+                        to="/guestbook"
+                        style={{
+                            display: 'inline-block',
+                            textDecoration: 'none',
+                            color: '#000',
+                            background: 'var(--color-accent)',
+                            padding: '0.65rem 2rem',
+                            borderRadius: '50px',
+                            fontWeight: 700,
+                            fontSize: '0.9rem',
+                            letterSpacing: '0.08em',
+                            transition: 'transform 0.25s, background 0.25s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
+                        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                    >
+                        GUESTBOOK →
+                    </Link>
                 </AnimatedText>
             </Section>
 
