@@ -126,6 +126,19 @@ export default function BlogFormModal({ open, onClose, blog, onSuccess }) {
             setError('Please enter a blog title first, then click AI Generate.');
             return;
         }
+
+        const enteredKey = prompt('Enter the blog generation secret key:');
+        if (enteredKey === null) {
+            // User cancelled
+            return;
+        }
+
+        const expectedKey = import.meta.env.VITE_BLOG_SECRET_KEY || import.meta.env.VITE_AI_SECRET_KEY || import.meta.env.VITE_SECRET_KEY;
+        if (enteredKey !== expectedKey) {
+            setError('Invalid secret key. AI generation aborted.');
+            return;
+        }
+
         setGenerating(true);
         setError(null);
         setGenProgress('🤖 Connecting to Groq AI…');

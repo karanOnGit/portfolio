@@ -22,20 +22,20 @@ function Toast({ message, type, onDone }) {
 }
 
 export default function BlogsPage() {
-    const [blogs, setBlogs]               = useState([]);
-    const [allBlogs, setAllBlogs]         = useState([]); // unfiltered store
-    const [isLoading, setIsLoading]       = useState(true);
-    const [fromCache, setFromCache]       = useState(false);
-    const [error, setError]               = useState(null);
-    const [searchQuery, setSearchQuery]   = useState('');
+    const [blogs, setBlogs] = useState([]);
+    const [allBlogs, setAllBlogs] = useState([]); // unfiltered store
+    const [isLoading, setIsLoading] = useState(true);
+    const [fromCache, setFromCache] = useState(false);
+    const [error, setError] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
     const navigate = useNavigate();
 
     // Modal state
-    const [formOpen, setFormOpen]             = useState(false);
-    const [editingBlog, setEditingBlog]       = useState(null);   // null = create
-    const [deleteTarget, setDeleteTarget]     = useState(null);   // blog to delete
-    const [deleteLoading, setDeleteLoading]   = useState(false);
+    const [formOpen, setFormOpen] = useState(false);
+    const [editingBlog, setEditingBlog] = useState(null);   // null = create
+    const [deleteTarget, setDeleteTarget] = useState(null);   // blog to delete
+    const [deleteLoading, setDeleteLoading] = useState(false);
 
     // Toast
     const [toast, setToast] = useState(null); // { message, type }
@@ -103,7 +103,7 @@ export default function BlogsPage() {
 
     // ── Handlers ──────────────────────────────────────
     const handleCreate = () => { setEditingBlog(null); setFormOpen(true); };
-    const handleEdit   = (e, blog) => { e.preventDefault(); e.stopPropagation(); setEditingBlog(blog); setFormOpen(true); };
+    const handleEdit = (e, blog) => { e.preventDefault(); e.stopPropagation(); setEditingBlog(blog); setFormOpen(true); };
     const handleDeleteClick = (e, blog) => { e.preventDefault(); e.stopPropagation(); setDeleteTarget(blog); };
 
     const handleFormSuccess = (saved) => {
@@ -245,7 +245,7 @@ export default function BlogsPage() {
                                 {blog.category && <span className="blog-chip">{blog.category}</span>}
 
                                 {/* ── Card Actions (edit / delete) ── */}
-                                <div className="blog-card-actions">
+                                {/* <div className="blog-card-actions">
                                     <button
                                         className="blog-card-action-btn blog-card-action-btn--edit"
                                         title="Edit blog"
@@ -260,7 +260,7 @@ export default function BlogsPage() {
                                     >
                                         🗑️
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="blog-card-body">
