@@ -120,12 +120,12 @@ export default function BlogDetailPage() {
                         >
                             ✏️ Edit
                         </button>
-                        <button
+                        {/* <button
                             className="bfm-btn bfm-btn--danger"
                             onClick={() => setDeleteOpen(true)}
                         >
                             🗑️ Delete
-                        </button>
+                        </button> */}
                     </div>
                 )}
             </div>
