@@ -88,7 +88,7 @@ export default function Overlay() {
                 </AnimatedText>
 
                 <AnimatedText delay={1.4} style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-                    <Link
+                    {/* <Link
                         to="/blog"
                         style={{
                             display: 'inline-block',
@@ -106,7 +106,7 @@ export default function Overlay() {
                         onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                     >
                         VIEW BLOGS →
-                    </Link>
+                    </Link> */}
                     <Link
                         to="/my-interests"
                         style={{
