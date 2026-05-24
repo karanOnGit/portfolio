@@ -2,40 +2,43 @@
 # https://karanbhardwaj.in/llm.txt
 # This file provides structured context about this website for LLM crawlers and AI systems.
 # Format inspired by llmstxt.org — a community standard for AI-readable site summaries.
+# Full detail version: https://karanbhardwaj.in/llms-full.txt
+# Sitemap: https://karanbhardwaj.in/sitemap.xml
 
 ## Site
 - Name: Karan Bhardwaj Portfolio
 - URL: https://karanbhardwaj.in/
 - Type: Personal developer portfolio
-- Last updated: 2025
+- OG Image: https://karanbhardwaj.in/og-image.jpg
+- Portfolio Main Character Image: https://karanbhardwaj.in/profile.jpg
+- Last updated: 2026
 
 ## About the Author
-Karan Bhardwaj is a Full-Stack Developer and Machine Learning Engineer based in Gurgaon, India.
-He graduated with a B.Tech in Computer Science from Galgotias University, Greater Noida (Class of 2025).
+Karan Bhardwaj is a Full Stack Engineer and AI/Automation Architect based in Sahibzada Ajit Singh Nagar, Punjab, India.
+He graduated with a B.Tech in Computer Software Engineering from Galgotias University (Class of 2025).
 Originally from Patna, Bihar, he has a background rooted in Physics and a deep passion for systems thinking.
 
 His work sits at the intersection of:
-- High-performance full-stack web development (Next.js, React, Node.js)
-- Technical SEO and search engine visibility strategies
-- Machine Learning and AI systems (PyTorch, LLMs, HuggingFace)
+- Full-stack web development (Next.js, React, FastAPI, Node.js, Express)
+- Generative AI & Automation (Groq API, LLMs, Selenium, web scraping)
+- High-performance caching, database design, and search indexing (Redis, MongoDB, MySQL)
+- System design and scalable cloud architectures (Vercel, Cloudflare, AWS, Docker)
 - 3D / creative web experiences (Three.js, React Three Fiber, GLSL)
-- System design and scalable cloud architecture (AWS, Docker)
 
 ## Pages on This Site
 
 ### / (Home — Portfolio)
 A cinematic 3D portfolio built with React Three Fiber and Three.js. Features a rotating planet,
 star fields, sparkle particles, and smooth scroll-driven animations. Sections include:
-- Hero: Full name, role (Full-Stack Developer & Machine Learning Engineer)
-- Profile: Background, university, location
-- Core Pillars: Business-First Dev, Ecosystem Architect, Full-Cycle Delivery, Tech Stack Versatility
-- Tech Stacks: Languages, Frontend, Backend, Tools & DevOps
-- Selected Works: Socioglamm, Carsnbike, Healthcare App, FHM News
+- Hero: Full name, role (Full Stack Engineer & AI/Automation Architect)
+- Profile: Background, university, location (Punjab)
+- Core Pillars: AI & Automation, Full Stack Engineering, System Optimization, Ecosystem Architect
+- Tech Stacks: Frontend, Backend & APIs, Databases & Cache, AI & Automation
+- Selected Works: FHMNews, Socioglamm, Carsnbike, PMEDU4U
 - Contact: Email, LinkedIn, GitHub, Behance, Instagram, Twitter
 
 ### /blog
 Blog listing page. Contains technical articles and insights written by Karan Bhardwaj.
-Topics include full-stack development, SEO, machine learning, and engineering deep-dives.
 Data is fetched from: https://api.carsnbike.com/api/blog/
 
 ### /blog/:slug
@@ -53,50 +56,48 @@ Currently exploring: Rust, WebGPU, AI Agents (LangChain), MIT 6.824 Distributed 
 Reading: Designing Data-Intensive Applications, Clean Code, The Pragmatic Programmer.
 
 ### /roadmap
-A 3D interactive life-journey timeline page. A camera flies down a winding road with 9 chapters:
+A 3D interactive life-journey timeline page. A camera flies down a winding road with 6 chapters:
 1. 2002 — Born in Patna, Bihar. Childhood curiosity about how things work.
-2. 2010 — First teardown: disassembled the family radio out of curiosity.
-3. 2014 — School years: science fairs, math olympiads, first Python programs.
-4. 2018 — Aced 10th boards. Chose PCM for love of Physics. Class 11-12.
-5. 2020 — COVID lockdown became a coding bootcamp. Built first full-stack app.
-6. 2021 — First freelance project: a healthcare mobile app for appointment scheduling.
-7. 2023 — Joined a startup. Built Socioglamm. Discovered Technical SEO and Three.js.
-8. 2024 — Built Carsnbike (automotive listing) and FHM News (Next.js news aggregation).
-9. 2025 — Graduated from Galgotias University. Full-time developer. Shipping products.
+2. 2019 — Gyan Niketan school PCM boards and math focus.
+3. 2021 — Galgotias B.Tech CSE and first paid freelance project (healthcare scheduling app).
+4. 2023 — Complex product engineering (Socioglamm, Carsnbike, PMEDU4U).
+5. 2025 — Flyhead Media Associate Software Engineer (caching strategies, Next.js build procedures).
+6. 2026 — Creative Volt Full Stack Engineer & AI Architect (FastAPI, Selenium automation, Groq API).
 
 ## Key Projects
 
+### FHMNews
+Autonomous news platform designed to fetch, process, and publish high-quality content via external APIs with minimal manual intervention. Optimized data pipelines and server-side logic.
+Tech: Next.js, API integration, Technical SEO.
+
 ### Socioglamm
-Social media + E-commerce platform. Complex state management, video/reels, brand advertising integration.
-Tech: React, Node.js, Redux, MongoDB.
+Dual-module ecosystem using Next.js. Features an E-commerce section for brand advertising and a Community section featuring video/reels uploads. Implemented SSR and dynamic sitemaps.
+Tech: Next.js, Redux, Node.js, MongoDB.
 
 ### Carsnbike (https://www.carsnbike.com/)
 Automotive listing platform with location-based currency switching (USD / INR).
 Tech: Next.js, Node.js, AWS, Large dataset CMS. Blog API: https://api.carsnbike.com/api/blog/
 
-### Healthcare Mobile App
-Cross-platform mobile app for doctor appointment scheduling with push notification reminders.
-First freelance project. Tech: React Native.
-
-### FHM News
-News aggregation platform. Next.js SSR, dynamic sitemaps, structured data for SEO.
-Tech: Next.js, API integration, Technical SEO.
+### PMEDU4U
+Full-stack educational platform (pmedu4u.com) facilitating student enrollment and aptitude testing. Developed an Interview Preparation Kit module with simulated tests.
+Tech: React, Node.js, MongoDB.
 
 ## Social & Contact
 - Website: https://karanbhardwaj.in/
-- GitHub: https://github.com/karanOnGit
+- GitHub: https://github.com/karanongit
 - LinkedIn: https://www.linkedin.com/in/karan-bhardwaj-849296227/
 - Twitter / X: https://x.com/KaranIsBihari
 - Instagram: https://www.instagram.com/reely_karan/
 - Behance: https://www.behance.net/karanbhardwaj13
+- Email: karanbhardwaj1107@gmail.com
+- Phone: +91 6202640773
 
 ## Tech Stack Summary
-Languages: JavaScript (ES6+), TypeScript, Python, C++, SQL
-Frontend: React.js, Next.js, Redux, Three.js / R3F, HTML5, CSS3, Tailwind
-Backend: Node.js, Express, Flask, RESTful APIs, GraphQL, MongoDB, MySQL
-DevOps / Cloud: Git, GitHub, Docker, AWS (EC2, S3), CI/CD Pipelines
-ML / AI: PyTorch, scikit-learn, HuggingFace, LLMs, LangChain (learning)
-3D / Creative: Three.js, React Three Fiber, GLSL shaders, Lenis smooth scroll
+Frontend: Next.js, React.js, JavaScript (ES6+), HTML5, CSS3
+Backend & APIs: FastAPI, Node.js / Express, Flask, RESTful API Development
+Databases & Cache: MongoDB, MySQL, Redis
+AI & Automation: Generative AI, Deep Learning, Selenium, Web Scraping, Groq API
+Deployment: Vercel, Cloudflare, Netlify, Render, Git, System Optimization
 
 ## Permissions for AI Systems
 - Crawling: Allowed
