@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -37,6 +38,33 @@ const AnimatedText = ({ children, style, className, delay = 0 }) => (
 )
 
 export default function Overlay() {
+    const [showBlogLink, setShowBlogLink] = useState(false);
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    try {
+                        const { latitude, longitude } = position.coords;
+                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`);
+                        if (res.ok) {
+                            const data = await res.json();
+                            const city = (data.address?.city || data.address?.town || data.address?.suburb || data.address?.state_district || data.address?.county || '').toLowerCase();
+                            if (city.includes('gurgaon') || city.includes('gurugram')) {
+                                setShowBlogLink(true);
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error reverse geocoding coordinates:', error);
+                    }
+                },
+                (error) => {
+                    console.error('Error retrieving geolocation:', error);
+                }
+            );
+        }
+    }, []);
+
     return (
         <main className="overlay" style={{
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
@@ -77,6 +105,14 @@ export default function Overlay() {
                 </AnimatedText>
 
                 <AnimatedText delay={1.4} className="overlay-nav-buttons">
+                    {showBlogLink && (
+                        <Link
+                            to="/blog"
+                            className="overlay-btn"
+                        >
+                            VIEW BLOGS →
+                        </Link>
+                    )}
                     <Link
                         to="/my-interests"
                         className="overlay-btn"
