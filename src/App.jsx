@@ -5,6 +5,7 @@ import Lenis from 'lenis';
 import Scene from './components/Scene';
 import Overlay from './components/Overlay';
 import CustomCursor from './components/CustomCursor';
+import GlobalDock from './components/GlobalDock';
 import BlogsPage from './components/BlogsPage';
 import BlogDetailPage from './components/BlogDetailPage';
 import MyInterestsPage from './components/MyInterestsPage';
@@ -29,7 +30,6 @@ function Portfolio() {
 
     return (
         <>
-            <CustomCursor />
             <div
                 className="canvas-container"
                 style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1 }}
@@ -44,17 +44,29 @@ function Portfolio() {
     );
 }
 
+function MainLayout({ children }) {
+    return (
+        <>
+            <CustomCursor />
+            {children}
+            <GlobalDock />
+        </>
+    );
+}
+
 function App() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Portfolio />} />
-                <Route path="/blog" element={<BlogsPage />} />
-                <Route path="/my-interests" element={<MyInterestsPage />} />
-                <Route path="/roadmap" element={<RoadmapPage />} />
-                <Route path="/guestbook" element={<GuestbookPage />} />
-                <Route path="/blog/:slug" element={<BlogDetailPage />} />
-            </Routes>
+            <MainLayout>
+                <Routes>
+                    <Route path="/" element={<Portfolio />} />
+                    <Route path="/blog" element={<BlogsPage />} />
+                    <Route path="/my-interests" element={<MyInterestsPage />} />
+                    <Route path="/roadmap" element={<RoadmapPage />} />
+                    <Route path="/guestbook" element={<GuestbookPage />} />
+                    <Route path="/blog/:slug" element={<BlogDetailPage />} />
+                </Routes>
+            </MainLayout>
         </BrowserRouter>
     );
 }

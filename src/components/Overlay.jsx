@@ -38,31 +38,13 @@ const AnimatedText = ({ children, style, className, delay = 0 }) => (
 )
 
 export default function Overlay() {
-    const [showBlogLink, setShowBlogLink] = useState(false);
-
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    try {
-                        const { latitude, longitude } = position.coords;
-                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`);
-                        if (res.ok) {
-                            const data = await res.json();
-                            const city = (data.address?.city || data.address?.town || data.address?.suburb || data.address?.state_district || data.address?.county || '').toLowerCase();
-                            if (city.includes('gurgaon') || city.includes('gurugram')) {
-                                setShowBlogLink(true);
-                            }
-                        }
-                    } catch (error) {
-                        console.error('Error reverse geocoding coordinates:', error);
-                    }
-                },
-                (error) => {
-                    console.error('Error retrieving geolocation:', error);
-                }
-            );
-        }
+        const handleMouseMove = (e) => {
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (
@@ -105,32 +87,18 @@ export default function Overlay() {
                 </AnimatedText>
 
                 <AnimatedText delay={1.4} className="overlay-nav-buttons">
-                    {showBlogLink && (
-                        <Link
-                            to="/blog"
-                            className="overlay-btn"
-                        >
-                            VIEW BLOGS →
-                        </Link>
-                    )}
-                    <Link
-                        to="/my-interests"
-                        className="overlay-btn"
+                    <button
+                        onClick={() => {
+                            const nextSection = document.querySelector('.overlay-nav-buttons').closest('section').nextElementSibling;
+                            if (nextSection) {
+                                nextSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className="overlay-btn vengeance-enter-btn"
+                        style={{ border: 'none', cursor: 'pointer' }}
                     >
-                        MY INTERESTS →
-                    </Link>
-                    <Link
-                        to="/roadmap"
-                        className="overlay-btn"
-                    >
-                        ROADMAP →
-                    </Link>
-                    <Link
-                        to="/guestbook"
-                        className="overlay-btn"
-                    >
-                        GUESTBOOK →
-                    </Link>
+                        EXPLORE SYSTEM ↓
+                    </button>
                 </AnimatedText>
             </Section>
 
