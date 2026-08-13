@@ -1,15 +1,14 @@
 /* =====================================================
-   MY INTERESTS PAGE — Vanilla CSS
-   Matches portfolio dark theme (Deep Void Black / Silver)
+   MY INTERESTS PAGE — Modern Minimalist Theme
    ===================================================== */
 
 /* ── Page Shell ──────────────────────────────────────── */
 .interests-page {
     min-height: 100vh;
-    padding: 6vw 10vw;
-    background: var(--color-bg, #020203);
-    color: var(--color-text, #fff);
-    font-family: var(--font-body, 'Space Grotesk', sans-serif);
+    padding: 6rem var(--section-padding-x);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
     overflow-x: hidden;
 }
 
@@ -19,32 +18,30 @@
 }
 
 .interests-title {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-family: var(--font-sans);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 800;
     letter-spacing: -0.03em;
-    color: #fff;
-    line-height: 0.9;
-    text-transform: uppercase;
+    color: var(--color-text);
+    line-height: 0.95;
     margin-bottom: 1.2rem;
 }
 
 .interests-subtitle {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
     max-width: 540px;
     line-height: 1.7;
 }
 
 /* ── Section Label ───────────────────────────────────── */
 .interests-section-label {
-    font-family: monospace;
+    font-family: var(--font-mono);
     font-size: 0.72rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #C0C0C0;
-    opacity: 0.6;
+    color: var(--color-accent);
     margin-bottom: 2.5rem;
     display: flex;
     align-items: center;
@@ -55,28 +52,28 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(192,192,192,0.2), transparent);
+    background: linear-gradient(to right, var(--color-border), transparent);
 }
 
 /* ── Interest Cards Grid ─────────────────────────────── */
 .interests-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.8rem;
+    gap: 1.5rem;
     margin-bottom: 6rem;
 }
 
 /* ── Interest Card ───────────────────────────────────── */
 .interest-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     padding: 2rem;
     overflow: hidden;
     cursor: default;
     transition:
-        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
         border-color 0.3s,
         box-shadow 0.4s;
 }
@@ -88,13 +85,13 @@
     opacity: 0;
     border-radius: inherit;
     transition: opacity 0.4s;
-    background: radial-gradient(ellipse at 30% 30%, var(--card-glow, rgba(192,192,192,0.06)) 0%, transparent 70%);
+    background: radial-gradient(ellipse at 30% 30%, var(--card-glow, rgba(100, 255, 218, 0.04)) 0%, transparent 70%);
 }
 
 .interest-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(192, 192, 192, 0.18);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(-6px);
+    border-color: var(--color-border-hover);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .interest-card:hover::before {
@@ -107,21 +104,19 @@
     margin-bottom: 1.2rem;
     display: block;
     line-height: 1;
-    filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .interest-card:hover .interest-card-icon {
-    transform: scale(1.15) rotate(-5deg);
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
+    transform: scale(1.1) rotate(-3deg);
 }
 
 /* ── Card Title ──────────────────────────────────────── */
 .interest-card-title {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
     margin-bottom: 0.5rem;
 }
 
@@ -129,22 +124,23 @@
 .interest-card-tag {
     display: inline-block;
     font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.2rem 0.75rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     margin-bottom: 0.9rem;
-    background: rgba(192, 192, 192, 0.08);
-    border: 1px solid rgba(192, 192, 192, 0.15);
-    color: #C0C0C0;
+    background: var(--color-accent-dim);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
 }
 
 /* ── Card Desc ───────────────────────────────────────── */
 .interest-card-desc {
     font-size: 0.9rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-secondary);
 }
 
 /* ── Skill Pills inside cards ────────────────────────── */
@@ -158,18 +154,18 @@
 .interest-pill {
     font-size: 0.7rem;
     padding: 0.2rem 0.65rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.55);
-    font-family: monospace;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
     letter-spacing: 0.03em;
     transition: background 0.2s, color 0.2s;
 }
 
 .interest-card:hover .interest-pill {
-    background: rgba(192, 192, 192, 0.07);
-    color: rgba(192, 192, 192, 0.8);
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
 }
 
 /* ── Featured / Wide Card ────────────────────────────── */
@@ -191,18 +187,18 @@
 .exploring-list {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
 }
 
 .exploring-item {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     padding: 1.5rem 2rem;
-    transition: border-color 0.25s, background 0.25s;
+    transition: border-color 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
 }
@@ -212,16 +208,16 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 3px;
+    width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, #C0C0C0, transparent);
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
     opacity: 0;
     transition: opacity 0.3s;
 }
 
 .exploring-item:hover {
-    border-color: rgba(192, 192, 192, 0.15);
-    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
 }
 
 .exploring-item:hover::after {
@@ -229,26 +225,26 @@
 }
 
 .exploring-num {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-family: var(--font-sans);
     font-size: 2rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.05);
     min-width: 2.5rem;
     line-height: 1;
     user-select: none;
 }
 
 .exploring-text h3 {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-family: var(--font-sans);
     font-size: 1.05rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-text);
     margin-bottom: 0.3rem;
 }
 
 .exploring-text p {
     font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: var(--color-text-muted);
     line-height: 1.65;
 }
 
@@ -256,12 +252,13 @@
     margin-left: auto;
     align-self: center;
     font-size: 0.63rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.2rem 0.75rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     white-space: nowrap;
+    font-family: var(--font-mono);
 }
 
 .exploring-badge--active {
@@ -277,26 +274,26 @@
 }
 
 .exploring-badge--planned {
-    background: rgba(192, 192, 192, 0.07);
-    border: 1px solid rgba(192, 192, 192, 0.15);
-    color: rgba(192, 192, 192, 0.7);
+    background: rgba(100, 255, 218, 0.08);
+    border: 1px solid rgba(100, 255, 218, 0.15);
+    color: var(--color-accent);
 }
 
 /* ── Manifesto / Quote Strip ─────────────────────────── */
 .interests-manifesto {
     margin-bottom: 6rem;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     text-align: center;
 }
 
 .interests-manifesto blockquote {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-family: var(--font-sans);
     font-size: clamp(1.3rem, 3vw, 2rem);
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text);
     line-height: 1.4;
     letter-spacing: -0.01em;
     margin-bottom: 1rem;
@@ -304,11 +301,11 @@
 
 .interests-manifesto cite {
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     font-style: normal;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    font-family: monospace;
+    font-family: var(--font-mono);
 }
 
 /* ── Reading / Media List ────────────────────────────── */
@@ -320,47 +317,47 @@
 }
 
 .media-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     padding: 1.2rem 1.4rem;
-    transition: transform 0.3s, border-color 0.25s;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s;
     cursor: default;
 }
 
 .media-item:hover {
     transform: translateY(-4px);
-    border-color: rgba(192, 192, 192, 0.15);
+    border-color: var(--color-border-hover);
 }
 
 .media-item-type {
     font-size: 0.63rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.3);
-    font-family: monospace;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
     margin-bottom: 0.5rem;
 }
 
 .media-item-title {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-text);
     margin-bottom: 0.25rem;
     line-height: 1.3;
 }
 
 .media-item-by {
     font-size: 0.78rem;
-    color: #C0C0C0;
-    opacity: 0.65;
+    color: var(--color-accent);
+    opacity: 0.7;
 }
 
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
     .interests-page {
-        padding: 8vw 6vw;
+        padding: 5rem 1.5rem;
     }
 
     .exploring-item {
