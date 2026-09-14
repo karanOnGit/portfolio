@@ -3,7 +3,7 @@ import '../styles/blog-form.css';
 
 const API_BASE   = 'https://api.carsnbike.com/api/blog';
 const GROQ_API   = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_KEY   = import.meta.env.VITE_GROQ_API_KEY;
+const GROQ_KEY   = import.meta.env.GROQ_API_KEY;
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
 
 const CATEGORIES   = ['News', 'Reviews', 'Tips & Tricks', 'Technology', 'Events', 'Comparisons', 'Guides'];
@@ -133,7 +133,7 @@ export default function BlogFormModal({ open, onClose, blog, onSuccess }) {
             return;
         }
 
-        const expectedKey = import.meta.env.VITE_BLOG_SECRET_KEY || import.meta.env.VITE_AI_SECRET_KEY || import.meta.env.VITE_SECRET_KEY;
+        const expectedKey = import.meta.env.BLOG_SECRET || import.meta.env.VITE_AI_SECRET_KEY || import.meta.env.VITE_SECRET_KEY;
         if (enteredKey !== expectedKey) {
             setError('Invalid secret key. AI generation aborted.');
             return;
