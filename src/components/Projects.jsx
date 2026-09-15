@@ -1,99 +1,199 @@
 import { motion } from 'framer-motion'
 
-const projects = [
-    {
-        title: 'FHMNews',
-        subtitle: 'Autonomous News Platform',
-        description: 'Engineered a fully autonomous news platform designed to fetch, process, and publish high-quality content via external APIs with minimal manual intervention. Optimized data pipelines and server-side logic for maximum efficiency.',
-        tags: ['FastAPI', 'Python', 'Selenium', 'Groq API', 'MongoDB'],
-    },
-    {
-        title: 'Socioglamm',
-        subtitle: 'Dual-Module Social Ecosystem',
-        description: 'Architected a dual-module ecosystem using Next.js — E-commerce for brand advertising and Community for video/reel uploads. Implemented SSR and dynamic sitemap generation for rapid Google indexing.',
-        tags: ['Next.js', 'React', 'SSR', 'SEO', 'MongoDB'],
-    },
-    {
-        title: 'CarsNBike',
-        subtitle: 'Automotive Listing & CMS',
-        description: 'Developed a dynamic listing portal with location-based filtering for cars and bikes, plus a blog CMS to track automobile industry trends and drive organic traffic.',
-        tags: ['Next.js', 'Node.js', 'MongoDB', 'SEO'],
-    },
-    {
-        title: 'PMEDU4U',
-        subtitle: 'EdTech Platform & Testing',
-        description: 'Delivered a full-stack educational platform facilitating student enrollment and aptitude testing, featuring an Interview Preparation Kit module with simulated tests.',
-        tags: ['React', 'Express', 'MySQL', 'Node.js'],
-    },
-]
-
 const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (delay = 0) => ({
+    hidden: { opacity: 0, y: 25 },
+    visible: (custom = 0) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }
+        transition: { duration: 0.7, delay: custom, ease: [0.16, 1, 0.3, 1] }
     })
 }
 
 export default function Projects() {
     return (
         <section className="section" id="projects">
-            <motion.p
-                className="section__label"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0}
-            >
-                03 — Projects
-            </motion.p>
-            <motion.h2
-                className="section__heading"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0.1}
-            >
-                Selected work
-            </motion.h2>
-            <motion.p
-                className="section__subheading"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0.2}
-            >
-                A collection of projects that showcase my expertise in full-stack development, AI integration, and automation.
-            </motion.p>
-
-            <div className="projects__grid">
-                {projects.map((project, idx) => (
+            <div className="container">
+                {/* Section Header */}
+                <div className="section__header">
                     <motion.div
-                        key={idx}
-                        className="project-card"
+                        className="section__tag"
                         variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
-                        custom={idx * 0.1}
+                        viewport={{ once: true }}
+                        custom={0}
                     >
-                        <div className="project-card__header">
-                            <span className="project-card__icon">⬡</span>
+                        <span>02</span> // Selected Systems
+                    </motion.div>
+                    <motion.h2
+                        className="section__title"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        custom={0.08}
+                    >
+                        Products built for <span>autonomy & scale</span>
+                    </motion.h2>
+                    <motion.p
+                        className="section__subtitle"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        custom={0.16}
+                    >
+                        A curated collection of production applications combining generative AI, backend automation, and high-performance frontends.
+                    </motion.p>
+                </div>
+
+                {/* Bento Grid Layout */}
+                <div className="projects-bento">
+                    {/* Featured Bento Card (Full Width): FHMNews */}
+                    <motion.div
+                        className="bento-card bento-card--featured"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.2}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                    <span className="bento-tag bento-tag--highlight">★ Featured Platform</span>
+                                    <span className="bento-tag">Autonomous News Network</span>
+                                </div>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">FHMNews.com</h3>
+                            <p className="bento-subtitle">Autonomous News Ingestion & Publishing Pipeline</p>
+                            <p className="bento-desc">
+                                Engineered a completely autonomous digital news publication that continuously ingests external data feeds,
+                                filters noise, enriches content with Groq LLMs (Llama-3.3), and auto-publishes SEO-optimized articles with zero human intervention.
+                            </p>
+
+                            {/* Visual Architecture Flow Diagram */}
+                            <div className="bento-diagram">
+                                <div className="diagram-node">Multi-API Ingestion</div>
+                                <span className="diagram-arrow">➔</span>
+                                <div className="diagram-node diagram-node--accent">Groq Llama-3.3</div>
+                                <span className="diagram-arrow">➔</span>
+                                <div className="diagram-node">FastAPI Server</div>
+                                <span className="diagram-arrow">➔</span>
+                                <div className="diagram-node diagram-node--accent">MongoDB Cluster</div>
+                                <span className="diagram-arrow">➔</span>
+                                <div className="diagram-node">Next.js Live SSR</div>
+                            </div>
                         </div>
-                        <h3 className="project-card__title">{project.title}</h3>
-                        <p className="project-card__subtitle">{project.subtitle}</p>
-                        <p className="project-card__description">{project.description}</p>
-                        <div className="project-card__tags">
-                            {project.tags.map((tag) => (
-                                <span key={tag} className="project-card__tag">{tag}</span>
-                            ))}
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">FastAPI</span>
+                            <span className="tech-pill">Python</span>
+                            <span className="tech-pill">Selenium</span>
+                            <span className="tech-pill">Groq API</span>
+                            <span className="tech-pill">Llama-3.3</span>
+                            <span className="tech-pill">MongoDB</span>
+                            <span className="tech-pill">SEO Infrastructure</span>
                         </div>
                     </motion.div>
-                ))}
+
+                    {/* Bento Card 2: Socioglamm */}
+                    <motion.div
+                        className="bento-card bento-card--half"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.28}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <span className="bento-tag">Dual-Module Ecosystem</span>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">Socioglamm Platform</h3>
+                            <p className="bento-subtitle">E-Commerce & Community Video Ecosystem</p>
+                            <p className="bento-desc">
+                                Architected a dual-module consumer ecosystem combining an e-commerce marketplace for brand advertising with a social reel and video-sharing community engine. Engineered SSR and dynamic sitemaps for rapid Google indexing.
+                            </p>
+                        </div>
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">Next.js</span>
+                            <span className="tech-pill">React 19</span>
+                            <span className="tech-pill">SSR</span>
+                            <span className="tech-pill">MongoDB</span>
+                            <span className="tech-pill">Video Streaming</span>
+                            <span className="tech-pill">SEO Engine</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Bento Card 3: CarsNBike */}
+                    <motion.div
+                        className="bento-card bento-card--half"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.34}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <span className="bento-tag">Automotive Portal & CMS</span>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">CarsNBike Portal</h3>
+                            <p className="bento-subtitle">Automotive Marketplace & Industry CMS</p>
+                            <p className="bento-desc">
+                                Developed a high-speed vehicle discovery portal featuring geolocation-based vehicle search, real-time inventory management, and an integrated blog CMS to capture automotive search traffic.
+                            </p>
+                        </div>
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">Next.js</span>
+                            <span className="tech-pill">Node.js</span>
+                            <span className="tech-pill">Express</span>
+                            <span className="tech-pill">MongoDB</span>
+                            <span className="tech-pill">Geo-Filtering</span>
+                            <span className="tech-pill">Blog Engine</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Bento Card 4 (Double Width or Full): PMEDU4U */}
+                    <motion.div
+                        className="bento-card bento-card--featured"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.4}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <span className="bento-tag">EdTech & Aptitude Simulation</span>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">PMEDU4U Platform</h3>
+                            <p className="bento-subtitle">Educational Portal & Simulated Interview Kit</p>
+                            <p className="bento-desc">
+                                Delivered an educational platform facilitating student enrollment and aptitude testing. Built an interactive 'Interview Preparation Kit' module featuring simulated test environments, automated grading, and live performance tracking.
+                            </p>
+                        </div>
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">React</span>
+                            <span className="tech-pill">Express.js</span>
+                            <span className="tech-pill">MySQL</span>
+                            <span className="tech-pill">Node.js</span>
+                            <span className="tech-pill">Test Simulation Engine</span>
+                        </div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     )

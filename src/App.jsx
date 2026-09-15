@@ -41,6 +41,13 @@ function Portfolio() {
 
     return (
         <>
+            {/* Ambient Lighting & Grid Matrix */}
+            <div className="bg-ambient">
+                <div className="bg-ambient__glow-1" />
+                <div className="bg-ambient__glow-2" />
+                <div className="bg-ambient__grid" />
+            </div>
+
             <Navbar />
             <main>
                 <Hero />

@@ -2,89 +2,135 @@ import { motion } from 'framer-motion'
 
 const skillCategories = [
     {
-        title: 'Frontend',
-        items: ['Next.js', 'React.js', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'React Native'],
+        title: 'Generative AI & LLM Systems',
+        icon: '🧠',
+        desc: 'Integrating state-of-the-art LLMs into production applications with sub-second response times.',
+        skills: [
+            'Groq API',
+            'Llama-3.3-70B',
+            'Prompt Architecture',
+            'Autonomous AI Agents',
+            'Dynamic AI CMS',
+            'Deep Learning Integrations',
+        ],
     },
     {
-        title: 'Backend & APIs',
-        items: ['FastAPI', 'Node.js / Express', 'Flask', 'RESTful APIs'],
+        title: 'Full Stack & Web Core',
+        icon: '⚡',
+        desc: 'Building ultra-fast, SEO-dominant digital experiences with modern React and FastAPI backends.',
+        skills: [
+            'Next.js (SSR / ISR)',
+            'React 19',
+            'FastAPI (Python)',
+            'Node.js & Express',
+            'JavaScript (ES6+)',
+            'Vanilla CSS Systems',
+        ],
     },
     {
-        title: 'Databases & Cache',
-        items: ['MongoDB', 'MySQL', 'Redis'],
+        title: 'Data, Caching & Storage',
+        icon: '💾',
+        desc: 'Architecting resilient databases, indexing strategies, and multi-tier memory caching.',
+        skills: [
+            'MongoDB Cluster',
+            'MySQL Databases',
+            'Redis Caching',
+            'RESTful API Standards',
+            'Database Profiling',
+            'JSON Schemas',
+        ],
     },
     {
-        title: 'AI & Automation',
-        items: ['Generative AI', 'Deep Learning', 'Selenium', 'Web Scraping', 'Groq API', 'LLMs'],
-    },
-    {
-        title: 'Deployment',
-        items: ['Vercel', 'Cloudflare', 'Netlify', 'Render', 'Git'],
+        title: 'Automation & Cloud Infrastructure',
+        icon: '🛠',
+        desc: 'Automating multi-platform content distribution, data ingestion, and cloud delivery.',
+        skills: [
+            'Selenium Automation',
+            'Python Data Crawlers',
+            'SEO Automation',
+            'Cloudflare Edge',
+            'Vercel Deployment',
+            'Git & CI/CD',
+        ],
     },
 ]
 
 const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (delay = 0) => ({
+    hidden: { opacity: 0, y: 25 },
+    visible: (custom = 0) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }
+        transition: { duration: 0.7, delay: custom, ease: [0.16, 1, 0.3, 1] }
     })
 }
 
 export default function Skills() {
     return (
         <section className="section" id="skills">
-            <motion.p
-                className="section__label"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0}
-            >
-                04 — Skills
-            </motion.p>
-            <motion.h2
-                className="section__heading"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0.1}
-            >
-                Tech stack
-            </motion.h2>
-            <motion.p
-                className="section__subheading"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0.2}
-            >
-                Technologies and tools I use to bring products to life.
-            </motion.p>
-
-            <div className="skills__grid">
-                {skillCategories.map((category, idx) => (
+            <div className="container">
+                {/* Section Header */}
+                <div className="section__header">
                     <motion.div
-                        key={idx}
-                        className="skills__category"
+                        className="section__tag"
                         variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-30px" }}
-                        custom={idx * 0.08}
+                        viewport={{ once: true }}
+                        custom={0}
                     >
-                        <h3 className="skills__category-title">{category.title}</h3>
-                        <ul className="skills__list">
-                            {category.items.map((item) => (
-                                <li key={item} className="skills__item">{item}</li>
-                            ))}
-                        </ul>
+                        <span>04</span> // Technical Arsenal
                     </motion.div>
-                ))}
+                    <motion.h2
+                        className="section__title"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        custom={0.08}
+                    >
+                        Frameworks, tools & <span>engineering craft</span>
+                    </motion.h2>
+                    <motion.p
+                        className="section__subtitle"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        custom={0.16}
+                    >
+                        Technologies I leverage daily to architect autonomous products and scalable applications.
+                    </motion.p>
+                </div>
+
+                {/* 4-Quadrant Skills Grid */}
+                <div className="skills-grid">
+                    {skillCategories.map((cat, idx) => (
+                        <motion.div
+                            key={idx}
+                            className="skill-matrix-card"
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-40px" }}
+                            custom={idx * 0.1}
+                        >
+                            <div className="matrix-header">
+                                <span className="matrix-icon">{cat.icon}</span>
+                                <div>
+                                    <h3 className="matrix-title">{cat.title}</h3>
+                                </div>
+                            </div>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: '1.5' }}>
+                                {cat.desc}
+                            </p>
+                            <div className="matrix-pills">
+                                {cat.skills.map((skill) => (
+                                    <span key={skill} className="matrix-pill">{skill}</span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     )
