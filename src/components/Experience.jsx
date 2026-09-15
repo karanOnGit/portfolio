@@ -10,7 +10,7 @@ const experiences = [
         badgeColor: 'var(--accent-primary)',
         bullets: [
             'Architected and deployed full-stack web applications utilizing React, Node.js, Express, and MongoDB, ensuring 99.9% uptime and low latency.',
-            'Built FHMNews.com, an autonomous news platform that fetches, synthesizes, and auto-publishes content via external API integrations with zero manual intervention.',
+            'Built FHMNews, an autonomous news platform that fetches, synthesizes, and auto-publishes content via external API integrations with zero manual intervention.',
             'Designed Python automation pipelines leveraging Selenium and requests for seamless content ingestion, web scraping, and multi-channel distribution.',
             'Developed intelligent AI blogging systems using Groq API and Llama-3.3 for automated content curation and dynamic scheduling.',
             'Optimized database queries, API routing, and response speeds with FastAPI, significantly accelerating search engine indexing.',

@@ -101,7 +101,7 @@ Type: Autonomous News Platform
 Status: Deployed & Live
 Role: Lead Full Stack Engineer
 Description:
-  Engineered a fully autonomous news platform (FHMNews.com) designed to fetch,
+  Engineered a fully autonomous news platform (FHMnews) designed to fetch,
   process, and publish high-quality content via external APIs with minimal manual
   intervention. Built Python-based automation scripts using Selenium and requests
   for seamless ingestion. Developed intelligent blogging systems utilizing Groq API
@@ -171,7 +171,7 @@ SECTION 5: LIFE JOURNEY / ROADMAP
 2026 — Creative Volt (Full Stack Engineer & AI Architect).
   Joined Creative Volt in Sahibzada Ajit Singh Nagar, Punjab. Architecting full-stack
   systems, writing automation scripts using Selenium and requests, and deploying
-  autonomous news platform FHMNews.com with Groq API and LLMs.
+  autonomous news platform FHMnews with Groq API and LLMs.
 
 ================================================================================
 SECTION 6: INTERESTS & CURRENTLY LEARNING

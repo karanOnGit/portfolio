@@ -51,7 +51,7 @@ const CHAPTERS = [
         year: '2026',
         era: 'Chapter 06 — Creative Volt',
         title: 'Full Stack Engineer & AI Architect',
-        desc: 'Joined Creative Volt in Sahibzada Ajit Singh Nagar. Architecting full-stack systems, writing automation scripts using Selenium and requests, and deploying autonomous news platform FHMNews.com with Groq API and LLMs.',
+        desc: 'Joined Creative Volt in Sahibzada Ajit Singh Nagar. Architecting full-stack systems, writing automation scripts using Selenium and requests, and deploying autonomous news platform FHMnews with Groq API and LLMs.',
         tags: ['Creative Volt', 'AI Automation', 'FastAPI', 'FHMNews'],
         color: '#64ffda',
     },
