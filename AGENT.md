@@ -17,7 +17,7 @@ PROFESSIONAL EXPERIENCE
 Creative Volt | Sahibzada Ajit Singh Nagar
 Full Stack Engineer | February 2026 - Present
 Architected and deployed robust full-stack web applications utilizing React, Node.js, Express, and MongoDB, ensuring high availability and performance.
-Built FHMNews.com, a fully automated news platform that fetches, formats, and publishes content via API integrations, drastically reducing manual operational effort.
+Built FHMnews, a fully automated news platform that fetches, formats, and publishes content via API integrations, drastically reducing manual operational effort.
 Designed and implemented Python-based automation scripts leveraging Selenium and requests for seamless content ingestion, data scraping, and multi-platform distribution.
 Developed intelligent blogging systems utilizing Groq API and LLMs for automated content generation and dynamic scheduling.
 Optimized database queries, routing, and API response times using FastAPI and Flask, improving overall system efficiency and ensuring rapid search engine URL indexing.
@@ -39,7 +39,9 @@ Implemented caching strategies and data structuring utilizing Redis, significant
 Actively collaborated in debugging and testing features to ensure stable releases in a fast-paced startup ecosystem.
 
 KEY PROJECTS
-FHMNews.com (Autonomous News Platform): Engineered a fully autonomous news platform designed to fetch, process, and publish high-quality content via external APIs with minimal manual intervention. Optimized data pipelines and server-side logic to ensure maximum system efficiency and reliability.
+FHMnews (Autonomous News Platform): Engineered a fully autonomous news platform designed to fetch, process, and publish high-quality content via external APIs with minimal manual intervention. Optimized data pipelines and server-side logic to ensure maximum system efficiency and reliability.
+Tripxpedia (Full-Stack Online Travel Agency Platform): Built a complete digital-first Online Travel Agency (OTA) platform enabling users to search, compare, and book flights, hotels, and vacation packages across 120+ destinations. Implemented real-time search flows, user dashboards, booking management, and responsive UI using Next.js with technical SEO best practices.
+TheBusinessClassFly (Premium Travel Booking Platform): Developed a specialized premium flight booking platform focused on Business and First Class inventory with transparent pricing, personalized booking flows, high-performance frontend architecture, and conversion-focused technical SEO.
 Socioglamm Platform: Architected a dual-module ecosystem using Next.js. Built an E-commerce section for partner brand advertising and a Community section featuring video/reel uploads to increase user retention. Implemented server-side rendering (SSR) and dynamic sitemap generation, ensuring rapid Google indexing.
 Carsnbike (Automotive Listing): Developed carsnbike.com, a dynamic listing portal. Engineered location-based filtering for cars/bikes and a blog CMS to track automobile industry trends.
 PMEDU4U (EdTech Platform): Delivered a full-stack educational platform (pmedu4u.com) facilitating student enrollment and aptitude testing. Developed an "Interview Preparation Kit" module with simulated tests.

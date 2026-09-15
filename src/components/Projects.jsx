@@ -56,7 +56,7 @@ export default function Projects() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-40px" }}
-                        custom={0.2}
+                        custom={0.15}
                     >
                         <div>
                             <div className="bento-header">
@@ -67,7 +67,7 @@ export default function Projects() {
                                 <span className="bento-link-arrow">↗</span>
                             </div>
 
-                            <h3 className="bento-title">FHMNews.com</h3>
+                            <h3 className="bento-title">FHMNews</h3>
                             <p className="bento-subtitle">Autonomous News Ingestion & Publishing Pipeline</p>
                             <p className="bento-desc">
                                 Engineered a completely autonomous digital news publication that continuously ingests external data feeds,
@@ -99,14 +99,77 @@ export default function Projects() {
                         </div>
                     </motion.div>
 
-                    {/* Bento Card 2: Socioglamm */}
+                    {/* Bento Card 2: Tripxpedia */}
                     <motion.div
                         className="bento-card bento-card--half"
                         variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-40px" }}
-                        custom={0.28}
+                        custom={0.2}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <span className="bento-tag bento-tag--highlight">Online Travel Agency</span>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">Tripxpedia</h3>
+                            <p className="bento-subtitle">Full-Stack Online Travel Agency Platform</p>
+                            <p className="bento-desc">
+                                Built a complete digital-first Online Travel Agency (OTA) platform enabling users to search, compare, and book flights, hotels, and vacation packages across 120+ destinations. Implemented real-time search flows, user dashboards, booking management, and technical SEO architecture for high organic discoverability.
+                            </p>
+                        </div>
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">Next.js</span>
+                            <span className="tech-pill">React</span>
+                            <span className="tech-pill">OTA Engine</span>
+                            <span className="tech-pill">Technical SEO</span>
+                            <span className="tech-pill">Booking Flows</span>
+                            <span className="tech-pill">Clean Architecture</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Bento Card 3: TheBusinessClassFly */}
+                    <motion.div
+                        className="bento-card bento-card--half"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.25}
+                    >
+                        <div>
+                            <div className="bento-header">
+                                <span className="bento-tag bento-tag--highlight">Luxury Travel & Aviation</span>
+                                <span className="bento-link-arrow">↗</span>
+                            </div>
+
+                            <h3 className="bento-title">TheBusinessClassFly</h3>
+                            <p className="bento-subtitle">Premium Flight Booking Platform</p>
+                            <p className="bento-desc">
+                                Developed a specialized premium flight booking platform focused on Business and First Class inventory with transparent pricing and personalized booking flows. Handled frontend architecture, performance tuning, and technical SEO foundations for high-intent luxury travel keywords.
+                            </p>
+                        </div>
+
+                        <div className="bento-footer">
+                            <span className="tech-pill">Next.js</span>
+                            <span className="tech-pill">Luxury Travel</span>
+                            <span className="tech-pill">Technical SEO</span>
+                            <span className="tech-pill">Performance Tuning</span>
+                            <span className="tech-pill">Conversion UX</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Bento Card 4: Socioglamm */}
+                    <motion.div
+                        className="bento-card bento-card--half"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-40px" }}
+                        custom={0.3}
                     >
                         <div>
                             <div className="bento-header">
@@ -131,14 +194,14 @@ export default function Projects() {
                         </div>
                     </motion.div>
 
-                    {/* Bento Card 3: CarsNBike */}
+                    {/* Bento Card 5: CarsNBike */}
                     <motion.div
                         className="bento-card bento-card--half"
                         variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-40px" }}
-                        custom={0.34}
+                        custom={0.35}
                     >
                         <div>
                             <div className="bento-header">
@@ -163,7 +226,7 @@ export default function Projects() {
                         </div>
                     </motion.div>
 
-                    {/* Bento Card 4 (Double Width or Full): PMEDU4U */}
+                    {/* Bento Card 6: PMEDU4U */}
                     <motion.div
                         className="bento-card bento-card--featured"
                         variants={fadeUp}
