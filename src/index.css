@@ -46,8 +46,12 @@
     --color-border: rgba(255, 255, 255, 0.08);
     --color-border-hover: rgba(255, 255, 255, 0.2);
 
-    /* Typography */
-    --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Typography Design Tokens */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-tech: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
     --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
     /* Layout & Spacing */
@@ -229,11 +233,19 @@ button {
 }
 
 .section__title {
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     letter-spacing: -0.035em;
     line-height: 1.15;
     color: var(--text-primary);
+}
+
+.serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 }
 
 .section__title span {
@@ -242,7 +254,47 @@ button {
     -webkit-text-fill-color: transparent;
 }
 
+.section__title .serif-italic,
+.hero__headline .serif-italic,
+.contact-hub__title .serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    font-size: 1.08em;
+}
+
+/* Section-Specific Title Typography */
+#hero .hero__headline {
+    font-family: var(--font-display);
+}
+
+#about .section__title {
+    font-family: var(--font-heading);
+}
+
+#projects .section__title {
+    font-family: var(--font-tech);
+    letter-spacing: -0.03em;
+}
+
+#experience .section__title {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+}
+
+#skills .section__title {
+    font-family: var(--font-tech);
+    letter-spacing: -0.03em;
+}
+
+#contact .contact-hub__title {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+}
+
 .section__subtitle {
+    font-family: var(--font-sans);
     margin-top: 0.75rem;
     font-size: 1.05rem;
     color: var(--text-secondary);
@@ -292,8 +344,9 @@ button {
 }
 
 .nav__logo-text {
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
     letter-spacing: -0.03em;
     color: var(--text-primary);
 }
@@ -332,8 +385,10 @@ button {
 }
 
 .nav__link {
+    font-family: var(--font-tech);
     font-size: 0.88rem;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--text-secondary);
     padding: 0.45rem 0.8rem;
     border-radius: var(--radius-pill);
@@ -352,9 +407,10 @@ button {
 }
 
 .nav__cta-btn {
+    font-family: var(--font-tech);
     font-size: 0.82rem;
-    font-weight: 600;
-    padding: 0.45rem 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     background: var(--text-primary);
     color: var(--bg-base);
     border-radius: var(--radius-pill);
@@ -431,10 +487,11 @@ button {
 }
 
 .hero__headline {
+    font-family: var(--font-display);
     font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     font-weight: 800;
     line-height: 1.08;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.04em;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
 }
@@ -446,6 +503,7 @@ button {
 }
 
 .hero__bio {
+    font-family: var(--font-sans);
     font-size: clamp(1rem, 1.2vw, 1.15rem);
     color: var(--text-secondary);
     line-height: 1.65;
@@ -467,8 +525,10 @@ button {
 }
 
 .btn-primary {
+    font-family: var(--font-tech);
     font-size: 0.92rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     padding: 0.8rem 1.6rem;
     background: var(--text-primary);
     color: var(--bg-base);
@@ -487,8 +547,10 @@ button {
 }
 
 .btn-secondary {
+    font-family: var(--font-tech);
     font-size: 0.92rem;
     font-weight: 500;
+    letter-spacing: -0.01em;
     padding: 0.8rem 1.4rem;
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
@@ -518,6 +580,7 @@ button {
     transform: translateX(-50%);
     background: #10b981;
     color: #ffffff;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 600;
     padding: 0.3rem 0.65rem;
@@ -548,18 +611,19 @@ button {
 }
 
 .metric-value {
-    font-family: var(--font-sans);
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.02em;
 }
 
 .metric-label {
-    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
 }
 
 /* ========================================
@@ -764,8 +828,9 @@ button {
 }
 
 .about__image-name {
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.02em;
 }
@@ -838,6 +903,7 @@ button {
 }
 
 .pillar-title {
+    font-family: var(--font-tech);
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -845,6 +911,7 @@ button {
 }
 
 .pillar-text {
+    font-family: var(--font-sans);
     font-size: 0.92rem;
     color: var(--text-secondary);
     line-height: 1.6;
@@ -938,10 +1005,11 @@ button {
 }
 
 .bento-title {
+    font-family: var(--font-tech);
     font-size: 1.45rem;
     font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     margin-bottom: 0.4rem;
 }
 
@@ -953,6 +1021,7 @@ button {
 }
 
 .bento-desc {
+    font-family: var(--font-sans);
     font-size: 0.92rem;
     color: var(--text-secondary);
     line-height: 1.65;
@@ -1051,6 +1120,7 @@ button {
 }
 
 .exp-card__role {
+    font-family: var(--font-tech);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -1059,6 +1129,7 @@ button {
 }
 
 .exp-card__company {
+    font-family: var(--font-sans);
     font-size: 0.95rem;
     color: var(--text-secondary);
 }
@@ -1100,6 +1171,7 @@ button {
 }
 
 .exp-card__bullet {
+    font-family: var(--font-sans);
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
@@ -1158,6 +1230,7 @@ button {
 }
 
 .matrix-title {
+    font-family: var(--font-tech);
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -1212,15 +1285,17 @@ button {
 }
 
 .contact-hub__title {
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4.5vw, 3.4rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.035em;
     line-height: 1.12;
     color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .contact-hub__desc {
+    font-family: var(--font-sans);
     font-size: 1.05rem;
     color: var(--text-secondary);
     max-width: 540px;
@@ -1238,8 +1313,10 @@ button {
 }
 
 .contact-email-btn {
+    font-family: var(--font-tech);
     font-size: 1rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     padding: 0.9rem 2rem;
     background: var(--text-primary);
     color: var(--bg-base);
@@ -1312,12 +1389,15 @@ button {
 }
 
 .footer-logo {
-    font-weight: 700;
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
 }
 
 .footer-copy {
+    font-family: var(--font-sans);
     font-size: 0.82rem;
     color: var(--text-muted);
 }
@@ -1330,7 +1410,9 @@ button {
 }
 
 .footer-link {
-    font-size: 0.82rem;
+    font-family: var(--font-tech);
+    font-size: 0.84rem;
+    font-weight: 500;
     color: var(--text-secondary);
     transition: color var(--transition-fast);
 }

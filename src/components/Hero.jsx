@@ -50,7 +50,7 @@ export default function Hero() {
 
                         {/* Bold Modern Headline */}
                         <h1 className="hero__headline">
-                            Full Stack Engineer & <span className="text-gradient">AI Architect</span>
+                            Full Stack Engineer & <span className="text-gradient serif-italic">AI Architect</span>
                         </h1>
 
                         {/* Punchy Narrative Bio */}

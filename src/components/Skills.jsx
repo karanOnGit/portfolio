@@ -88,7 +88,7 @@ export default function Skills() {
                         viewport={{ once: true }}
                         custom={0.08}
                     >
-                        Frameworks, tools & <span>engineering craft</span>
+                        Frameworks, tools & <span className="serif-italic">engineering craft</span>
                     </motion.h2>
                     <motion.p
                         className="section__subtitle"

@@ -33,7 +33,7 @@ export default function About() {
                         viewport={{ once: true }}
                         custom={0.08}
                     >
-                        Engineering autonomous products & <span>scalable systems</span>
+                        Engineering autonomous products & <span className="serif-italic">scalable systems</span>
                     </motion.h2>
                     <motion.p
                         className="section__subtitle"

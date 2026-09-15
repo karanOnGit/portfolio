@@ -33,7 +33,7 @@ export default function Projects() {
                         viewport={{ once: true }}
                         custom={0.08}
                     >
-                        Products built for <span>autonomy & scale</span>
+                        Products built for <span className="serif-italic">autonomy & scale</span>
                     </motion.h2>
                     <motion.p
                         className="section__subtitle"

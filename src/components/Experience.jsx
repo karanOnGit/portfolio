@@ -80,7 +80,7 @@ export default function Experience() {
                         viewport={{ once: true }}
                         custom={0.08}
                     >
-                        Commercial experience & <span>proven impact</span>
+                        Commercial experience & <span className="serif-italic">proven impact</span>
                     </motion.h2>
                     <motion.p
                         className="section__subtitle"

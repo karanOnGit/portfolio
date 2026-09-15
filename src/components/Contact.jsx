@@ -38,7 +38,7 @@ export default function Contact() {
                     </div>
 
                     <h2 className="contact-hub__title">
-                        Let's build something <span className="text-gradient">exceptional</span>
+                        Let's build something <span className="text-gradient serif-italic">exceptional</span>
                     </h2>
 
                     <p className="contact-hub__desc">
