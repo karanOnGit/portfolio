@@ -7,7 +7,7 @@ const skillCategories = [
         desc: 'Integrating state-of-the-art LLMs into production applications with sub-second response times.',
         skills: [
             'Groq API',
-            'Llama-3.3-70B',
+            'Qwen 3.8 / GPT-OSS',
             'Prompt Architecture',
             'Autonomous AI Agents',
             'Dynamic AI CMS',
@@ -40,19 +40,19 @@ const skillCategories = [
             'JSON Schemas',
         ],
     },
-    {
-        title: 'Automation & Cloud Infrastructure',
-        icon: '🛠',
-        desc: 'Automating multi-platform content distribution, data ingestion, and cloud delivery.',
-        skills: [
-            'Selenium Automation',
-            'Python Data Crawlers',
-            'SEO Automation',
-            'Cloudflare Edge',
-            'Vercel Deployment',
-            'Git & CI/CD',
-        ],
-    },
+    // {
+    //     title: 'Automation & Cloud Infrastructure',
+    //     icon: '🛠',
+    //     desc: 'Automating multi-platform content distribution, data ingestion, and cloud delivery.',
+    //     skills: [
+    //         'Selenium Automation',
+    //         'Python Data Crawlers',
+    //         'SEO Automation',
+    //         'Cloudflare Edge',
+    //         'Vercel Deployment',
+    //         'Git & CI/CD',
+    //     ],
+    // },
 ]
 
 const fadeUp = {

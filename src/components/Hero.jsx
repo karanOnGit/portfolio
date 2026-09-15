@@ -182,7 +182,7 @@ export default function Hero() {
                                                 <span className="step-num">02</span>
                                                 <div className="step-content">
                                                     <div className="step-title">Groq LLM Synthesis</div>
-                                                    <div className="step-detail">Llama-3.3-70B • Content Structuring</div>
+                                                    <div className="step-detail">Qwen 3.8 / GPT-OSS • Content Structuring</div>
                                                 </div>
                                                 <span className="step-badge">AI Core</span>
                                             </div>
@@ -226,7 +226,7 @@ export default function Hero() {
   <span className="code-keyword">"primary_stack"</span>: &#123;
     <span className="code-func">"frontend"</span>: <span className="code-string">"Next.js, React 19, Vanilla CSS"</span>,
     <span className="code-func">"backend"</span>: <span className="code-string">"FastAPI, Node.js, Express"</span>,
-    <span className="code-func">"ai_engine"</span>: <span className="code-string">"Groq API, Llama-3.3-70B"</span>,
+    <span className="code-func">"ai_engine"</span>: <span className="code-string">"Groq API, Qwen 3.8 / GPT-OSS"</span>,
     <span className="code-func">"databases"</span>: <span className="code-string">"MongoDB, MySQL, Redis"</span>,
     <span className="code-func">"automation"</span>: <span className="code-string">"Selenium, Python Scraping"</span>
   &#123;,

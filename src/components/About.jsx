@@ -119,7 +119,7 @@ export default function About() {
                                 <h3 className="pillar-title">AI-Native Product Architecture</h3>
                             </div>
                             <p className="pillar-text">
-                                Integrating large language models (Groq API, Llama-3.3) directly into consumer web apps.
+                                Integrating state-of-the-art LLMs (Groq API, Qwen, GPT-OSS) directly into consumer web apps.
                                 Specializing in automated content generation, dynamic markdown rendering, and intelligent
                                 backend scheduling with sub-second latency.
                             </p>

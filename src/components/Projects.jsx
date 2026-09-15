@@ -71,14 +71,14 @@ export default function Projects() {
                             <p className="bento-subtitle">Autonomous News Ingestion & Publishing Pipeline</p>
                             <p className="bento-desc">
                                 Engineered a completely autonomous digital news publication that continuously ingests external data feeds,
-                                filters noise, enriches content with Groq LLMs (Llama-3.3), and auto-publishes SEO-optimized articles with zero human intervention.
+                                filters noise, enriches content with Groq LLMs, and auto-publishes SEO-optimized articles with zero human intervention.
                             </p>
 
                             {/* Visual Architecture Flow Diagram */}
                             <div className="bento-diagram">
                                 <div className="diagram-node">Multi-API Ingestion</div>
                                 <span className="diagram-arrow">➔</span>
-                                <div className="diagram-node diagram-node--accent">Groq Llama-3.3</div>
+                                <div className="diagram-node diagram-node--accent">Groq AI Engine</div>
                                 <span className="diagram-arrow">➔</span>
                                 <div className="diagram-node">FastAPI Server</div>
                                 <span className="diagram-arrow">➔</span>
@@ -93,7 +93,7 @@ export default function Projects() {
                             <span className="tech-pill">Python</span>
                             <span className="tech-pill">Selenium</span>
                             <span className="tech-pill">Groq API</span>
-                            <span className="tech-pill">Llama-3.3</span>
+                            <span className="tech-pill">Open-Source LLMs</span>
                             <span className="tech-pill">MongoDB</span>
                             <span className="tech-pill">SEO Infrastructure</span>
                         </div>

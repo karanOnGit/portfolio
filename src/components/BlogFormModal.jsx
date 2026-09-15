@@ -4,7 +4,8 @@ import '../styles/blog-form.css';
 const API_BASE   = 'https://api.carsnbike.com/api/blog';
 const GROQ_API   = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_KEY   = import.meta.env.VITE_GROQ_API_KEY;
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const GROQ_MODEL = 'qwen/qwen3.8-27b';
+const GROQ_FALLBACK_MODEL = 'openai/gpt-oss-120b';
 
 const CATEGORIES   = ['News', 'Reviews', 'Tips & Tricks', 'Technology', 'Events', 'Comparisons', 'Guides'];
 const STATUSES     = ['published', 'draft'];
@@ -63,8 +64,17 @@ Rules:
 
 // ── Parse Groq response safely ────────────────────────────────────────────────
 function parseGroqJSON(text) {
-    // Strip potential markdown code fences
-    const cleaned = text.replace(/^```[a-z]*\n?/i, '').replace(/\n?```$/i, '').trim();
+    let cleaned = text.trim();
+    const match = cleaned.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (match) {
+        cleaned = match[1].trim();
+    } else {
+        const firstBrace = cleaned.indexOf('{');
+        const lastBrace = cleaned.lastIndexOf('}');
+        if (firstBrace !== -1 && lastBrace !== -1) {
+            cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+        }
+    }
     return JSON.parse(cleaned);
 }
 
@@ -146,28 +156,40 @@ export default function BlogFormModal({ open, onClose, blog, onSuccess }) {
         try {
             setGenProgress('✍️ Generating blog content (this may take 10–20s)…');
 
-            const res = await fetch(GROQ_API, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${GROQ_KEY}`,
-                },
-                body: JSON.stringify({
-                    model: GROQ_MODEL,
-                    messages: [
-                        {
-                            role: 'system',
-                            content: 'You are a professional blog writer and SEO expert. You always respond with valid JSON only — no markdown, no code fences, no extra commentary.',
-                        },
-                        {
-                            role: 'user',
-                            content: buildPrompt(title),
-                        },
-                    ],
-                    temperature: 0.7,
-                    max_tokens: 4096,
-                }),
-            });
+            const fetchGroqCompletion = async (modelToUse) => {
+                const response = await fetch(GROQ_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${GROQ_KEY}`,
+                    },
+                    body: JSON.stringify({
+                        model: modelToUse,
+                        response_format: { type: 'json_object' },
+                        messages: [
+                            {
+                                role: 'system',
+                                content: 'You are a professional blog writer and SEO expert. You always respond with valid JSON only — no markdown, no code fences, no extra commentary.',
+                            },
+                            {
+                                role: 'user',
+                                content: buildPrompt(title),
+                            },
+                        ],
+                        temperature: 0.7,
+                        max_tokens: 4096,
+                    }),
+                });
+                return response;
+            };
+
+            let res = await fetchGroqCompletion(GROQ_MODEL);
+
+            // If primary model fails, attempt fallback model
+            if (!res.ok) {
+                console.warn(`Primary model ${GROQ_MODEL} failed, attempting fallback ${GROQ_FALLBACK_MODEL}...`);
+                res = await fetchGroqCompletion(GROQ_FALLBACK_MODEL);
+            }
 
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
