@@ -59,6 +59,10 @@ const nextConfig = {
       { source: '/my-interests', destination: '/interests', permanent: true },
       { source: '/blogs', destination: '/blog', permanent: true },
       { source: '/blog-single/:slug', destination: '/blog/:slug', permanent: true },
+      // The previous build shipped three hand-maintained LLM summary files.
+      // They are now one generated route.
+      { source: '/llm.txt', destination: '/llms.txt', permanent: true },
+      { source: '/llms-full.txt', destination: '/llms.txt', permanent: true },
     ]
   },
 }

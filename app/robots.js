@@ -16,6 +16,6 @@ export default function robots() {
       },
     ],
     sitemap: absoluteUrl('/sitemap.xml'),
-    host: absoluteUrl('/'),
+    host: absoluteUrl('/').replace(/^https?:\/\//, ''),
   }
 }

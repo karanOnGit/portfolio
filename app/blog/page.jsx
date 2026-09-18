@@ -21,9 +21,9 @@ export const revalidate = 300
 export const metadata = buildMetadata({
   title: 'Journal',
   description:
-    'Notes on autonomous systems, generative AI in production, rendering strategy and the parts of web performance that actually move the numbers.',
+    'Published writing from the content platforms I build and operate, including the automated editorial feed behind CarsNBike.',
   path: '/blog',
-  keywords: ['engineering blog', 'AI automation', 'Next.js rendering', 'technical SEO'],
+  keywords: ['automated publishing', 'AI content pipeline', 'editorial automation'],
 })
 
 export default async function JournalPage() {
@@ -47,10 +47,10 @@ export default async function JournalPage() {
         eyebrow="Journal"
         title={
           <>
-            Writing about systems that <em>run themselves</em>
+            Published by the systems I <em>built</em>
           </>
         }
-        lede="Long-form notes on automation, generative AI in the critical path, and the engineering decisions behind the platforms I build."
+        lede="Live output from the editorial platforms I build and operate. Most of what you see here was researched, written and published by the automated pipeline described on the home page — this page reads it back through the same API, on a five-minute revalidation window."
       />
 
       {/* Renders only for an authenticated author; invisible to everyone else. */}

@@ -7,7 +7,7 @@ const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta
 const config = [
   ...compat.extends('next/core-web-vitals'),
   {
-    ignores: ['.next/**', 'node_modules/**', 'public/**'],
+    ignores: ['.next/**', '.next-*/**', 'node_modules/**', 'public/**'],
   },
   {
     rules: {

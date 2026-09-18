@@ -18,6 +18,13 @@ import styles from '../article.module.css'
  * rendered on first request and then cached under its own tag. `dynamicParams`
  * is what makes that possible — without it, an unbuilt slug would 404 instead
  * of being generated on demand.
+ *
+ * This segment deliberately has no loading.jsx. A sibling loading file wraps
+ * the segment in a Suspense boundary, which streams the shell — and therefore
+ * commits a 200 status — before notFound() can run. That turns every missing
+ * article into a soft 404. The page is served from the ISR cache in almost
+ * every case, so the streamed placeholder was worth very little; a correct
+ * status code is worth a great deal more.
  */
 // Static literal by requirement; mirrors REVALIDATE.blogDetail.
 export const revalidate = 300
