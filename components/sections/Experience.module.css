@@ -1,0 +1,167 @@
+/* ============================================================================
+   Experience — a ruled ledger. Period on the left, the work on the right.
+   ========================================================================= */
+
+.list {
+  border-top: 1px solid var(--rule);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  border-bottom: 1px solid var(--rule);
+}
+
+.aside {
+  position: sticky;
+  top: 7rem;
+  align-self: start;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.company {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.place {
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+.status {
+  justify-self: start;
+  margin-top: var(--space-xs);
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.status[data-current='true'] {
+  border-color: var(--accent-line);
+  background: var(--accent-wash);
+  color: var(--accent);
+}
+
+.role {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+}
+
+.summary {
+  margin-top: var(--space-sm);
+  max-width: 58ch;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.highlights {
+  display: grid;
+  gap: 0;
+  margin-top: var(--space-lg);
+}
+
+.highlight {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+}
+
+.highlightIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  padding-top: 0.22rem;
+}
+
+.stack {
+  margin-top: var(--space-lg);
+}
+
+/* ── Education ──────────────────────────────────────────────────────────── */
+
+.education {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  padding-top: var(--space-2xl);
+}
+
+.educationList {
+  display: grid;
+  gap: 0;
+}
+
+.educationItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-top: 1px solid var(--rule);
+}
+
+.educationItem:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.educationName {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.educationMeta {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.educationPeriod {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-faint);
+}
+
+@media (max-width: 860px) {
+  .entry,
+  .education {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .aside {
+    position: static;
+  }
+}

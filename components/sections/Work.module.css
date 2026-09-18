@@ -1,0 +1,336 @@
+/* ============================================================================
+   Selected work
+   One featured plate, then the rest as a ruled index — the way a monograph
+   lists its plates, rather than a grid of identical cards.
+   ========================================================================= */
+
+/* ── Featured plate ─────────────────────────────────────────────────────── */
+
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-raised) 60%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+/* A large ghosted numeral, clipped by the plate edge. */
+.featureIndex {
+  position: absolute;
+  top: -1.6rem;
+  right: 1rem;
+  font-family: var(--font-display);
+  font-size: 9rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rule-strong);
+  pointer-events: none;
+  user-select: none;
+}
+
+.featureTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-wash);
+  border-radius: var(--radius-sm);
+}
+
+.kind {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.featureTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+}
+
+.featureSummary {
+  margin-top: var(--space-md);
+  max-width: 46ch;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.notes {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--rule);
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.noteKey {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 0.1rem;
+}
+
+.noteValue {
+  color: var(--ink-soft);
+}
+
+.featureTags {
+  margin-top: var(--space-lg);
+}
+
+/* ── Pipeline diagram ───────────────────────────────────────────────────── */
+
+.pipeline {
+  align-self: start;
+  border-left: 1px solid var(--rule);
+  padding-left: var(--space-xl);
+}
+
+.pipelineTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-bottom: var(--space-md);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  align-items: center;
+  padding-block: 0.7rem;
+}
+
+/* The connector between nodes, drawn as a line rather than a border so it can
+   stop short of the final node. */
+.step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.65rem;
+  top: 2.1rem;
+  bottom: -0.35rem;
+  width: 1px;
+  background: var(--rule-strong);
+}
+
+.stepDot {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--ink-mute);
+  background: var(--paper);
+}
+
+.step:hover .stepDot {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.stepLabel {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.step:hover .stepLabel {
+  color: var(--ink);
+}
+
+/* ── Index list ─────────────────────────────────────────────────────────── */
+
+.index {
+  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--rule);
+}
+
+.row {
+  display: block;
+  border-bottom: 1px solid var(--rule);
+  padding-block: var(--space-lg);
+  transition: padding var(--duration) var(--ease-out);
+}
+
+.rowHead {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1.5fr) minmax(0, 1fr) 4rem 1.5rem;
+  gap: var(--space-md);
+  align-items: baseline;
+}
+
+.rowIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.rowName {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  transition: color var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
+}
+
+.rowKind,
+.rowYear {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.rowYear {
+  text-align: right;
+}
+
+.rowArrow {
+  justify-self: end;
+  color: var(--ink-faint);
+  transition: transform var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
+}
+
+/* The body expands on hover and focus. grid-template-rows animates cleanly
+   from 0fr to 1fr, which `height: auto` cannot do. */
+.rowBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration) var(--ease-out);
+}
+
+.rowBodyInner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.rowBodyContent {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+}
+
+.rowSummary {
+  max-width: 62ch;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.rowTags {
+  margin-top: var(--space-sm);
+}
+
+.row:hover,
+.row:focus-within {
+  padding-block: var(--space-lg) var(--space-xl);
+}
+
+.row:hover .rowName,
+.row:focus-within .rowName {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+.row:hover .rowIndex,
+.row:focus-within .rowIndex {
+  color: var(--accent);
+}
+
+.row:hover .rowArrow,
+.row:focus-within .rowArrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.row:hover .rowBody,
+.row:focus-within .rowBody {
+  grid-template-rows: 1fr;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--space-lg);
+  }
+
+  .pipeline {
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    padding-left: 0;
+    padding-top: var(--space-lg);
+  }
+
+  .featureIndex {
+    font-size: 6rem;
+    top: -0.8rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .rowHead {
+    grid-template-columns: 2.25rem minmax(0, 1fr) 1.25rem;
+  }
+
+  .rowKind {
+    display: none;
+  }
+
+  .rowYear {
+    display: none;
+  }
+
+  .rowBodyContent {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Touch devices have no hover, so the summary is simply always open. */
+  .rowBody {
+    grid-template-rows: 1fr;
+  }
+}

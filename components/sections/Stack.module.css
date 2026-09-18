@@ -1,0 +1,162 @@
+/* ============================================================================
+   Capabilities — four plates, each headed by an outlined numeral.
+   ========================================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.cell {
+  position: relative;
+  padding: var(--space-xl);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  transition: background var(--duration) var(--ease-out);
+}
+
+.cell:hover {
+  background: color-mix(in srgb, var(--paper-raised) 70%, transparent);
+}
+
+.numeral {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 6.5rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rule-strong);
+  pointer-events: none;
+  user-select: none;
+  transition: -webkit-text-stroke-color var(--duration) var(--ease-out);
+}
+
+.cell:hover .numeral {
+  -webkit-text-stroke-color: var(--accent-line);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+.body {
+  margin-top: var(--space-sm);
+  max-width: 40ch;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.items {
+  display: grid;
+  margin-top: var(--space-lg);
+  border-top: 1px solid var(--rule);
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemMark {
+  color: var(--accent);
+  font-size: 0.7em;
+}
+
+/* ── Rendering note ─────────────────────────────────────────────────────── */
+
+.note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--rule);
+}
+
+.noteTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  max-width: 18ch;
+}
+
+.noteTitle em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.strategies {
+  display: grid;
+}
+
+.strategy {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-top: 1px solid var(--rule);
+}
+
+.strategy:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.strategyKey {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.15rem;
+}
+
+.strategyValue {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+}
+
+.strategyValue b {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cell {
+    padding: var(--space-lg);
+  }
+
+  .note {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+}

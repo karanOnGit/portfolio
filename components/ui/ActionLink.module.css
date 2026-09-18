@@ -1,0 +1,92 @@
+/* A link that behaves like a printed cross-reference: the rule under it is
+   drawn in on hover, and the arrow steps rather than glides. */
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-block: 0.35rem;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(var(--underline, 1));
+  transform-origin: 0 50%;
+  opacity: 0.32;
+  transition:
+    transform var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  opacity: 1;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Primary — a solid ink block, the one high-contrast element on the page. */
+.solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--ink);
+  color: var(--ink-invert);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  transition:
+    background var(--duration) var(--ease-out),
+    color var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.solid:hover,
+.solid:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Secondary — outline only, so it never competes with the solid action. */
+.outline {
+  composes: solid;
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+
+.outline:hover,
+.outline:focus-visible {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}

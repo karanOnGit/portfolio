@@ -1,0 +1,106 @@
+.footer {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--paper-sunk) 55%, transparent);
+  padding-block: var(--space-3xl) var(--space-xl);
+  margin-top: var(--space-4xl);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 0.8fr));
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+}
+
+.wordmark em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.blurb {
+  margin-top: var(--space-md);
+  max-width: 34ch;
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: var(--space-xs);
+}
+
+.columnTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-bottom: var(--space-xs);
+}
+
+.columnLink {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  padding-block: 0.22rem;
+  width: fit-content;
+  transition: color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.columnLink:hover,
+.columnLink:focus-visible {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-faint);
+}
+
+.metaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.colophon {
+  max-width: 46ch;
+}
+
+@media (max-width: 880px) {
+  .top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .brandColumn {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

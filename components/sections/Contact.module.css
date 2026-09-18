@@ -1,0 +1,141 @@
+/* ============================================================================
+   Contact — the closing plate. One statement, one address, nothing else
+   competing for the click.
+   ========================================================================= */
+
+.panel {
+  position: relative;
+  padding: var(--space-3xl) 0 0;
+}
+
+.statement {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: 1.02;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+.statement em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.1px var(--ink);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: end;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--rule);
+}
+
+.copy {
+  max-width: 46ch;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.address {
+  display: grid;
+  gap: var(--space-md);
+  justify-items: start;
+}
+
+.mailto {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 0.9rem + 1.6vw, 2.1rem);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 0.2rem;
+  overflow-wrap: anywhere;
+}
+
+.mailto::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.mailto:hover,
+.mailto:focus-visible {
+  color: var(--accent);
+}
+
+.mailto:hover::after,
+.mailto:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.channel {
+  display: grid;
+  gap: 0.3rem;
+  padding: var(--space-lg);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background var(--duration) var(--ease-out);
+}
+
+.channel:hover {
+  background: color-mix(in srgb, var(--paper-raised) 70%, transparent);
+}
+
+.channelLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.channelValue {
+  font-size: var(--text-sm);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.channel:hover .channelValue {
+  color: var(--accent);
+}
+
+@media (max-width: 820px) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .statement {
+    max-width: 12ch;
+  }
+}

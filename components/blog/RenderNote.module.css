@@ -1,0 +1,30 @@
+/* A small, honest footnote about how the page in front of you was produced.
+   It doubles as a working demonstration of the revalidation window. */
+.note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-faint);
+}
+
+.strategy {
+  padding: 0.18rem 0.45rem;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-sm);
+  background: var(--accent-wash);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.dot::before {
+  content: '·';
+  margin-right: var(--space-sm);
+}

@@ -1,0 +1,147 @@
+/* ============================================================================
+   SketchField
+   A fixed, non-interactive drawing behind every page. Kept under 7% opacity so
+   it reads as an impression of a drawing, never as decoration competing with
+   the text. Animation is CSS-only — no JavaScript runs per frame.
+   ========================================================================= */
+
+.field {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-background);
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+
+.canvas {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+}
+
+.contours {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.055;
+  transform-origin: 50% 50%;
+  animation: drift 64s var(--ease-in-out) infinite alternate;
+}
+
+.contours path {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  animation: trace 3.2s var(--ease-out) forwards;
+}
+
+.contoursAlt {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.05;
+  transform-origin: 50% 50%;
+  animation: driftReverse 82s var(--ease-in-out) infinite alternate;
+}
+
+.contoursAlt path {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  animation: trace 3.6s var(--ease-out) forwards;
+}
+
+.guides {
+  stroke: var(--ink);
+  stroke-width: 0.6;
+  stroke-dasharray: 5 9;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.045;
+  animation: breathe 28s ease-in-out infinite;
+}
+
+/* A hairline modular grid, barely there — it gives the eye a sense of
+   alignment without ever being legible as a grid. */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--rule-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule-ink) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: 0.16;
+  mask-image: radial-gradient(ellipse 120% 80% at 50% 0%, #000 10%, transparent 72%);
+}
+
+/* Paper grain. Multiplied over the ground so the white never looks like a
+   flat #fff screen fill. */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+/* Contour lines trace themselves once, on first paint. */
+@keyframes trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-1.2%, -0.8%, 0) rotate(-0.6deg) scale(1);
+  }
+  to {
+    transform: translate3d(1.6%, 1.4%, 0) rotate(0.8deg) scale(1.045);
+  }
+}
+
+@keyframes driftReverse {
+  from {
+    transform: translate3d(1.4%, 1%, 0) rotate(0.7deg) scale(1.03);
+  }
+  to {
+    transform: translate3d(-1.5%, -1.2%, 0) rotate(-0.5deg) scale(1);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.045;
+  }
+  50% {
+    opacity: 0.02;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contours,
+  .contoursAlt,
+  .guides {
+    animation: none;
+  }
+
+  .contours path,
+  .contoursAlt path {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+/* On small screens the drawing competes with the copy for attention and costs
+   compositing budget, so it is pared back rather than removed. */
+@media (max-width: 640px) {
+  .contoursAlt,
+  .guides {
+    display: none;
+  }
+
+  .contours {
+    opacity: 0.04;
+  }
+}
