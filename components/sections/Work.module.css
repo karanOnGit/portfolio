@@ -232,8 +232,10 @@
   transition: transform var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
 }
 
-/* The body expands on hover and focus. grid-template-rows animates cleanly
-   from 0fr to 1fr, which `height: auto` cannot do. */
+/* The summary is always readable — a portfolio that hides what the work was
+   until you hover is a portfolio that does not get read. Only the stack tags
+   are held back, and they expand on hover and focus. grid-template-rows
+   animates cleanly from 0fr to 1fr, which `height: auto` cannot do. */
 .rowBody {
   display: grid;
   grid-template-rows: 0fr;
@@ -249,24 +251,33 @@
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: var(--space-md);
-  padding-top: var(--space-md);
+  padding-top: var(--space-sm);
+}
+
+.rowSummaryWrap {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-top: var(--space-sm);
 }
 
 .rowSummary {
   max-width: 62ch;
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  color: var(--ink-soft);
+  color: var(--ink-mute);
   text-wrap: pretty;
+  transition: color var(--duration) var(--ease-out);
 }
 
-.rowTags {
-  margin-top: var(--space-sm);
+.row:hover .rowSummary,
+.row:focus-within .rowSummary {
+  color: var(--ink-soft);
 }
 
 .row:hover,
 .row:focus-within {
-  padding-block: var(--space-lg) var(--space-xl);
+  padding-block: var(--space-lg) var(--space-lg);
 }
 
 .row:hover .rowName,
@@ -325,11 +336,12 @@
     display: none;
   }
 
-  .rowBodyContent {
+  .rowBodyContent,
+  .rowSummaryWrap {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Touch devices have no hover, so the summary is simply always open. */
+  /* Touch devices have no hover, so the tags are simply always shown. */
   .rowBody {
     grid-template-rows: 1fr;
   }

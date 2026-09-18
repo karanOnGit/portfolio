@@ -97,11 +97,10 @@ export default async function Image() {
               fontSize: 138,
               lineHeight: 1,
               letterSpacing: -5,
-              color: 'transparent',
-              // Satori has no -webkit-text-stroke, so the outline is drawn as
-              // a four-way shadow ring instead.
-              textShadow:
-                '-1.2px -1.2px 0 #16130f, 1.2px -1.2px 0 #16130f, -1.2px 1.2px 0 #16130f, 1.2px 1.2px 0 #16130f',
+              // The live page outlines this line with -webkit-text-stroke.
+              // Satori renders neither that nor textShadow, so the same
+              // hierarchy is carried by tone instead of by outline.
+              color: '#b9b2a6',
             }}
           >
             Bhardwaj

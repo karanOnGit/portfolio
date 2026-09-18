@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  // Overridable so a production build can be verified without colliding with a
+  // `next dev` server already writing to .next in the same checkout.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
+
   // Article images come from an upstream CMS and from Google's image cache.
   // next/image needs each host declared explicitly.
   images: {

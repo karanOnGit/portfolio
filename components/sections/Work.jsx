@@ -106,14 +106,16 @@ export default function Work() {
               </span>
             </div>
 
+            <div className={styles.rowSummaryWrap}>
+              <span aria-hidden="true" />
+              <p className={styles.rowSummary}>{project.summary}</p>
+            </div>
+
             <div className={styles.rowBody}>
               <div className={styles.rowBodyInner}>
                 <div className={styles.rowBodyContent}>
                   <span aria-hidden="true" />
-                  <div>
-                    <p className={styles.rowSummary}>{project.summary}</p>
-                    <TagList items={project.stack} className={styles.rowTags} />
-                  </div>
+                  <TagList items={project.stack} />
                 </div>
               </div>
             </div>
