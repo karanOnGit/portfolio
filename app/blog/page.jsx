@@ -1,12 +1,10 @@
 import { getPosts } from '@/lib/api/blog'
-import { REVALIDATE } from '@/lib/constants'
 import { buildMetadata, breadcrumbSchema, itemListSchema } from '@/lib/seo'
 import JsonLd from '@/components/ui/JsonLd'
 import SectionHeading from '@/components/ui/SectionHeading'
 import JournalIndex from '@/components/blog/JournalIndex'
 import RenderNote from '@/components/blog/RenderNote'
 import AuthorBar from '@/components/blog/AuthorBar'
-import { isAuthor } from '@/lib/auth'
 
 /**
  * Journal index — incremental static regeneration.
@@ -16,7 +14,9 @@ import { isAuthor } from '@/lib/auth'
  * editor invalidate `blog:list` immediately, so new posts appear without
  * waiting out the window.
  */
-export const revalidate = REVALIDATE.blogList
+// Next requires this to be a static literal, so it cannot read from
+// lib/constants — REVALIDATE.blogList documents the same value.
+export const revalidate = 300
 
 export const metadata = buildMetadata({
   title: 'Journal',
@@ -27,8 +27,7 @@ export const metadata = buildMetadata({
 })
 
 export default async function JournalPage() {
-  // Both reads are independent, so they run concurrently rather than in series.
-  const [posts, author] = await Promise.all([getPosts(), isAuthor()])
+  const posts = await getPosts()
   const generatedAt = new Date().toISOString()
 
   return (
@@ -54,7 +53,8 @@ export default async function JournalPage() {
         lede="Long-form notes on automation, generative AI in the critical path, and the engineering decisions behind the platforms I build."
       />
 
-      {author ? <AuthorBar /> : null}
+      {/* Renders only for an authenticated author; invisible to everyone else. */}
+      <AuthorBar />
 
       {posts.length ? (
         <JournalIndex posts={posts} />

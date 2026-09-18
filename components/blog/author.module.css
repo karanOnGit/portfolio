@@ -1,0 +1,224 @@
+/* ============================================================================
+   Author tooling — only ever rendered for an authenticated session.
+   Styled as a workbench: functional, ruled, visually distinct from the
+   reading experience so it is obvious when you are editing.
+   ========================================================================= */
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px dashed var(--accent-line);
+  border-radius: var(--radius);
+  background: var(--accent-wash);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--accent);
+}
+
+.barLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.barSpacer {
+  flex: 1;
+}
+
+.action {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.action:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--ink-invert);
+}
+
+.action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actionDanger {
+  composes: action;
+  border-color: color-mix(in srgb, #b00020 40%, transparent);
+  color: #9c1f22;
+}
+
+.actionDanger:hover:not(:disabled) {
+  background: #9c1f22;
+  color: var(--ink-invert);
+}
+
+.entryActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-lg);
+}
+
+/* ── Editor ─────────────────────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
+  background: rgba(22, 19, 15, 0.42);
+  backdrop-filter: blur(3px);
+  animation: fade var(--duration) var(--ease-out);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.dialog {
+  width: min(58rem, 100%);
+  max-height: min(88vh, 60rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 40px 80px -40px rgba(22, 19, 15, 0.5);
+}
+
+.dialogHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.dialogTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.dialogBody {
+  overflow-y: auto;
+  padding: var(--space-lg);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.dialogFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--rule);
+}
+
+.assist {
+  display: grid;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-sunk) 50%, transparent);
+}
+
+.assistRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.assistRow > label {
+  flex: 1 1 14rem;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.fieldLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper-raised);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-line);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+
+.hint {
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+.status {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-mute);
+}
+
+.status[data-tone='error'] {
+  color: #9c1f22;
+}
+
+.status[data-tone='success'] {
+  color: #2f7d4f;
+}
+
+@media (max-width: 620px) {
+  .grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

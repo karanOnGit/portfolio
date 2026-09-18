@@ -1,0 +1,145 @@
+/* ============================================================================
+   Roadmap — a ruled timeline. The vertical line is a real element rather than
+   a border, so it can stop short of the final node instead of running past it.
+   ========================================================================= */
+
+.timeline {
+  position: relative;
+  margin-top: var(--space-xl);
+}
+
+.spine {
+  position: absolute;
+  left: 4.25rem;
+  top: 1.5rem;
+  bottom: 4rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--rule-strong) 8%,
+    var(--rule-strong) 88%,
+    transparent
+  );
+}
+
+.chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: var(--space-xl);
+  padding-block: var(--space-2xl);
+}
+
+.chapter:first-child {
+  padding-top: var(--space-lg);
+}
+
+.marker {
+  position: relative;
+  display: grid;
+  gap: var(--space-xs);
+  justify-items: start;
+}
+
+.year {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: transparent;
+  -webkit-text-stroke: 1.1px var(--rule-strong);
+  transition: -webkit-text-stroke-color var(--duration-slow) var(--ease-out);
+}
+
+.chapter:hover .year {
+  -webkit-text-stroke-color: var(--accent);
+}
+
+.node {
+  position: absolute;
+  left: 4.25rem;
+  top: 0.9rem;
+  width: 9px;
+  height: 9px;
+  margin-left: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper);
+  transition: border-color var(--duration) var(--ease-out), background var(--duration) var(--ease-out);
+}
+
+.chapter:hover .node {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  max-width: 24ch;
+}
+
+.body {
+  margin-top: var(--space-sm);
+  max-width: 58ch;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.tags {
+  margin-top: var(--space-md);
+}
+
+.closing {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--rule);
+}
+
+.closingTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+  max-width: 20ch;
+}
+
+.closingTitle em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .spine,
+  .node {
+    display: none;
+  }
+
+  .chapter {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
+    padding-block: var(--space-xl);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .marker {
+    flex-direction: row;
+  }
+}

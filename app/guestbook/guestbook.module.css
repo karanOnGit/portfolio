@@ -1,0 +1,191 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* ── Form ───────────────────────────────────────────────────────────────── */
+
+.form {
+  position: sticky;
+  top: 7rem;
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-raised) 68%, transparent);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper-raised);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-line);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 7rem;
+  line-height: var(--leading-relaxed);
+}
+
+/* Honeypot: off-screen and hidden from assistive technology, but a form-filling
+   bot will still see a text input named "website" and complete it. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.counter {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+.submit {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--ink-invert);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--ink-mute);
+}
+
+.status[data-tone='error'] {
+  color: #9c1f22;
+}
+
+.status[data-tone='success'] {
+  color: #2f7d4f;
+}
+
+/* ── Entries ────────────────────────────────────────────────────────────── */
+
+.entries {
+  border-top: 1px solid var(--rule);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.initial {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.entryHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: 0.3rem;
+}
+
+.entryName {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.entryDate {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-faint);
+}
+
+.entryMessage {
+  max-width: 62ch;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.empty {
+  padding-block: var(--space-2xl);
+  font-size: var(--text-sm);
+  color: var(--ink-mute);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form {
+    position: static;
+  }
+}

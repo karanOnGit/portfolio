@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { createSessionToken, sessionCookieOptions, verifyPassphrase } from '@/lib/auth'
+import { createSessionToken, isAuthor, sessionCookieOptions, verifyPassphrase } from '@/lib/auth'
 import { clientKey, rateLimit, sweep } from '@/lib/rate-limit'
 import { ADMIN_COOKIE } from '@/lib/constants'
 import { env } from '@/lib/env'
@@ -58,4 +58,19 @@ export async function DELETE() {
   const store = await cookies()
   store.delete(ADMIN_COOKIE)
   return NextResponse.json({ ok: true })
+}
+
+/**
+ * Session status.
+ *
+ * The session cookie is httpOnly, so the browser cannot read it directly. The
+ * author UI asks this endpoint instead, which keeps the pages it lives on
+ * statically renderable — reading cookies inside those routes would force
+ * every visitor onto a dynamic render for a control only I ever see.
+ */
+export async function GET() {
+  return NextResponse.json(
+    { author: await isAuthor() },
+    { headers: { 'cache-control': 'no-store, private' } },
+  )
 }

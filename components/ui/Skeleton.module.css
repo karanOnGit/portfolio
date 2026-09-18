@@ -1,0 +1,39 @@
+/* Placeholder blocks shown while a streamed route resolves. The shimmer is
+   slow and low-contrast on purpose — a fast one reads as an error state. */
+.block {
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--paper-sunk) 0%,
+    color-mix(in srgb, var(--paper-sunk) 55%, var(--paper)) 50%,
+    var(--paper-sunk) 100%
+  );
+  background-size: 200% 100%;
+  animation: sweep 1.9s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.rows {
+  display: grid;
+  gap: var(--space-lg);
+  border-top: 1px solid var(--rule);
+  padding-top: var(--space-lg);
+}
+
+.row {
+  display: grid;
+  gap: 0.6rem;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    animation: none;
+  }
+}

@@ -1,0 +1,84 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+  padding-block: var(--space-3xl);
+}
+
+.card {
+  width: min(26rem, 100%);
+  display: grid;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-raised) 70%, transparent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+}
+
+.body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.input {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper-raised);
+  font-size: var(--text-sm);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-line);
+}
+
+.submit {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--ink-invert);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: #9c1f22;
+}

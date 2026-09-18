@@ -74,8 +74,6 @@ export default function Footer() {
           </span>
 
           <p className={styles.colophon}>
-            Next.js App Router · static, ISR and streamed routes · Instrument Serif, Inter and
-            JetBrains Mono · drawn in SVG, set in CSS.
           </p>
 
           <span className={styles.metaGroup}>
