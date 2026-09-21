@@ -35,3 +35,9 @@ pnpm-debug.log*
 # Misc
 *.tsbuildinfo
 next-env.d.ts
+
+# Large media assets
+public/vid/
+public/fav-vid/
+*.crdownload
+

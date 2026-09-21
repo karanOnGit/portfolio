@@ -23,6 +23,9 @@ export default function Footer() {
               {site.availability}. The fastest way to reach me is email — I answer everything that
               is not a template.
             </p>
+            <Link href="/contact" className={styles.directContactLink}>
+              Send a message <span>→</span>
+            </Link>
           </Reveal>
 
           <Reveal className={styles.column} delay={80}>
@@ -41,6 +44,9 @@ export default function Footer() {
                 {item.label}
               </Link>
             ))}
+            <Link href="/contact" className={styles.columnLink}>
+              Contact
+            </Link>
           </Reveal>
 
           <Reveal className={styles.column} delay={200}>

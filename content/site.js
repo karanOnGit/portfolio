@@ -57,6 +57,7 @@ export const navigation = {
     { label: 'Roadmap', href: '/roadmap' },
     { label: 'Interests', href: '/interests' },
     { label: 'Guestbook', href: '/guestbook' },
+    // { label: 'Contact', href: '/contact' },
   ],
 }
 

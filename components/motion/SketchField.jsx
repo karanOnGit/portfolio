@@ -45,8 +45,9 @@ export default function SketchField() {
         viewBox={`0 0 ${VIEW} ${VIEW}`}
         preserveAspectRatio="xMidYMid slice"
         focusable="false"
+        fill="none"
       >
-        <g className={styles.guides}>
+        <g className={styles.guides} fill="none">
           {guides.map((line, index) => (
             <line
               key={index}
@@ -59,15 +60,15 @@ export default function SketchField() {
           ))}
         </g>
 
-        <g className={styles.contours}>
+        <g className={styles.contours} fill="none">
           {primary.map((d, index) => (
-            <path key={index} d={d} style={{ animationDelay: `${index * 90}ms` }} />
+            <path key={index} d={d} fill="none" style={{ animationDelay: `${index * 90}ms` }} />
           ))}
         </g>
 
-        <g className={styles.contoursAlt}>
+        <g className={styles.contoursAlt} fill="none">
           {secondary.map((d, index) => (
-            <path key={index} d={d} style={{ animationDelay: `${400 + index * 110}ms` }} />
+            <path key={index} d={d} fill="none" style={{ animationDelay: `${400 + index * 110}ms` }} />
           ))}
         </g>
       </svg>

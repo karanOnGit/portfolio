@@ -105,16 +105,24 @@
 .status {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  line-height: 1.6;
-  color: var(--ink-mute);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
 }
 
 .status[data-tone='error'] {
-  color: #9c1f22;
+  border-color: var(--accent-line);
+  background: var(--accent-wash);
+  color: var(--accent-deep);
 }
 
 .status[data-tone='success'] {
-  color: #2f7d4f;
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  color: #065f46;
 }
 
 /* ── Entries ────────────────────────────────────────────────────────────── */
@@ -141,6 +149,7 @@
   font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--ink-soft);
+  background: var(--paper-raised);
 }
 
 .entryHead {
@@ -174,10 +183,14 @@
 }
 
 .empty {
-  padding-block: var(--space-2xl);
+  padding: var(--space-xl);
+  margin-top: var(--space-md);
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-sunk) 60%, transparent);
   font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
   color: var(--ink-mute);
-  border-bottom: 1px solid var(--rule);
 }
 
 @media (max-width: 900px) {

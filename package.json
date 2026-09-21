@@ -2,7 +2,7 @@
   "name": "karanbhardwaj-portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "Portfolio of Karan Bhardwaj \u2014 Full Stack Engineer & AI Systems Architect.",
+  "description": "Portfolio of Karan Bhardwaj — Full Stack Engineer & AI Systems Architect.",
   "engines": {
     "node": ">=20.9.0"
   },
@@ -16,9 +16,11 @@
   "dependencies": {
     "lenis": "^1.3.17",
     "next": "^15.5.4",
+    "nodemailer": "^10.0.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sanitize-html": "^2.17.7"
+    "sanitize-html": "^2.17.7",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.7",
