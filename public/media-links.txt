@@ -1,0 +1,34 @@
+# CLOUDFLARE R2 PRIVATE MEDIA ARCHIVE
+# Bucket: buckelist
+# Storage Endpoint: https://d6b938492e3b72ec8c83ce9a76420586.r2.cloudflarestorage.com
+# Custom Domain: https://media.karanbhardwaj.in
+# Public Dev Subdomain: https://pub-9aa0232a707649f888454096dcba0610.r2.dev
+
+--------------------------------------------------------------------------------
+1. Seduction XYZ
+   File: seduction-xyz.mp4
+   Size: 283.6 MB
+   Duration: ~26 minutes
+   URL: https://media.karanbhardwaj.in/seduction-xyz.mp4
+   Fallback: https://pub-9aa0232a707649f888454096dcba0610.r2.dev/seduction-xyz.mp4
+
+--------------------------------------------------------------------------------
+2. Bucket List — Part 01
+   File: bkt-lst-01.mp4
+   Size: 448.7 MB
+   Duration: ~23 minutes
+   URL: https://media.karanbhardwaj.in/bkt-lst-01.mp4
+   Fallback: https://pub-9aa0232a707649f888454096dcba0610.r2.dev/bkt-lst-01.mp4
+
+--------------------------------------------------------------------------------
+3. Bucket List — Part 02
+   File: bkt-lst-02.mp4
+   Size: 685.0 MB
+   Duration: ~32 minutes
+   URL: https://media.karanbhardwaj.in/bkt-lst-02.mp4
+   Fallback: https://pub-9aa0232a707649f888454096dcba0610.r2.dev/bkt-lst-02.mp4
+
+--------------------------------------------------------------------------------
+Security Directives:
+X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+Disallowed in robots.txt for all crawlers, search engines, and AI scraper bots.

@@ -50,6 +50,14 @@ const nextConfig = {
         source: '/_next/static/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      {
+        // Block all search engines, AI scrapers and bots from indexing private media links
+        source: '/media-links.txt',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive, nosnippet, noimageindex' },
+          { key: 'Cache-Control', value: 'private, no-cache, no-store, must-revalidate' },
+        ],
+      },
     ]
   },
 
