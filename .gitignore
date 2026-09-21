@@ -41,3 +41,7 @@ public/vid/
 public/fav-vid/
 *.crdownload
 
+# Cloudflare Wrangler
+.wrangler/
+
+
