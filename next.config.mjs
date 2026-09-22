@@ -71,6 +71,9 @@ const nextConfig = {
       // They are now one generated route.
       { source: '/llm.txt', destination: '/llms.txt', permanent: true },
       { source: '/llms-full.txt', destination: '/llms.txt', permanent: true },
+      { source: '/prescription', destination: '/prescriptions', permanent: true },
+      { source: '/rx', destination: '/prescriptions', permanent: true },
+      { source: '/protocol', destination: '/prescriptions', permanent: true },
     ]
   },
 }

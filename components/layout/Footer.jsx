@@ -47,6 +47,9 @@ export default function Footer() {
             <Link href="/contact" className={styles.columnLink}>
               Contact
             </Link>
+            <Link href="/prescriptions" className={styles.columnLink}>
+              Prescriptions
+            </Link>
           </Reveal>
 
           <Reveal className={styles.column} delay={200}>
