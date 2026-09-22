@@ -39,11 +39,15 @@ export default function Footer() {
 
           <Reveal className={styles.column} delay={140}>
             <p className={styles.columnTitle}>Pages</p>
-            {navigation.pages.map((item) => (
-              <Link key={item.href} href={item.href} className={styles.columnLink}>
-                {item.label}
-              </Link>
-            ))}
+            {navigation.pages
+              .filter(
+                (item) => !['Journal', 'Roadmap', 'Interests'].includes(item.label)
+              )
+              .map((item) => (
+                <Link key={item.href} href={item.href} className={styles.columnLink}>
+                  {item.label}
+                </Link>
+              ))}
             <Link href="/contact" className={styles.columnLink}>
               Contact
             </Link>
