@@ -74,6 +74,9 @@ const nextConfig = {
       { source: '/prescription', destination: '/prescriptions', permanent: true },
       { source: '/rx', destination: '/prescriptions', permanent: true },
       { source: '/protocol', destination: '/prescriptions', permanent: true },
+      { source: '/biology', destination: '/biometrics', permanent: true },
+      { source: '/anatomy', destination: '/biometrics', permanent: true },
+      { source: '/body', destination: '/biometrics', permanent: true },
     ]
   },
 }

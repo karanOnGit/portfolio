@@ -22,6 +22,7 @@ export default async function sitemap() {
     { path: '/guestbook', priority: 0.5, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/prescriptions', priority: 0.6, changeFrequency: 'monthly' },
+    { path: '/biometrics', priority: 0.6, changeFrequency: 'monthly' },
   ].map((route) => ({
     url: absoluteUrl(route.path),
     lastModified: now,
