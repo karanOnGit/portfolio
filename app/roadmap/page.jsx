@@ -61,6 +61,57 @@ export default function RoadmapPage() {
               <h2 className={styles.title}>{chapter.title}</h2>
               <p className={styles.body}>{chapter.body}</p>
               <TagList items={chapter.tags} className={styles.tags} />
+
+              {chapter.certificate && (
+                <div className={styles.certCard}>
+                  <a
+                    href={chapter.certificate.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.certThumbWrap}
+                    title="Click to view full certificate"
+                  >
+                    <img
+                      src={chapter.certificate.url}
+                      alt={chapter.certificate.label}
+                      className={styles.certThumb}
+                      loading="lazy"
+                    />
+                    <span className={styles.certZoomBadge}>Enlarge ↗</span>
+                  </a>
+                  <div className={styles.certInfo}>
+                    <div className={styles.certBadgeRow}>
+                      <span className={styles.certBadge}>Verified Certification</span>
+                    </div>
+                    <h3 className={styles.certHeading}>{chapter.certificate.label}</h3>
+                    {chapter.certificate.description && (
+                      <p className={styles.certDesc}>{chapter.certificate.description}</p>
+                    )}
+                    <div className={styles.certLinks}>
+                      <a
+                        href={chapter.certificate.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.certActionPrimary}
+                      >
+                        <span>View Document</span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                      {chapter.certificate.externalUrl && (
+                        <a
+                          href={chapter.certificate.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.certActionSecondary}
+                        >
+                          <span>Original LinkedIn Feed</span>
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </Reveal>
         ))}

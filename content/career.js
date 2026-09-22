@@ -14,15 +14,16 @@ export const experience = [
     period: 'Feb 2026 — Present',
     status: 'Current',
     summary:
-      'Own the architecture of automation-first products: autonomous publishing, AI content systems and the FastAPI services underneath them.',
+      'Full Stack Developer in Mohali driving automation-first products, technical SEO strategy, and high-performance web applications.',
     highlights: [
       'Architected and deployed full-stack applications on React, Node.js, Express and MongoDB with high-availability targets.',
+      'Spearheaded technical SEO strategy and performance optimizations, accelerating search engine indexing and organic traffic.',
       'Built FHMNews, an autonomous news platform that fetches, synthesises and publishes content with no manual step.',
       'Designed Python ingestion pipelines with Selenium and requests for scraping and multi-channel distribution.',
       'Shipped AI blogging systems on the Groq API with scheduled generation and editorial guardrails.',
       'Tuned queries, routing and API latency with FastAPI, accelerating search engine indexing.',
     ],
-    stack: ['FastAPI', 'React', 'Node.js', 'Selenium', 'Groq API', 'MongoDB', 'Python'],
+    stack: ['FastAPI', 'React', 'Node.js', 'Selenium', 'Groq API', 'MongoDB', 'Python', 'SEO Strategy'],
   },
   {
     company: 'Flyhead Media',
@@ -47,29 +48,34 @@ export const experience = [
     role: 'Software Engineer Intern',
     start: '2025-04',
     end: '2025-07',
-    period: 'Apr 2025 — Jul 2025',
-    status: 'Internship',
+    period: 'Apr 2025 — Jul 2025 (3 Months)',
+    status: 'On-site Internship',
     summary:
-      'Joined the core team on cross-platform delivery and the caching layer behind it.',
+      'Joined on-site at Flyhead Media, a digital marketing company in Gurugram (₹25,000/mo stipend), building performant web modules and mobile interfaces.',
     highlights: [
       'Built and optimised cross-platform applications in React Native alongside the core engineering team.',
       'Implemented Redis caching strategies that cut database query response times.',
-      'Triaged, debugged and released features on a startup cadence.',
+      'Triaged, debugged and released features on a fast startup cadence.',
     ],
-    stack: ['React Native', 'Redis', 'Mobile UI'],
+    stack: ['React Native', 'Redis', 'Mobile UI', 'Next.js'],
   },
 ]
 
 export const education = [
   {
     institution: 'Galgotias University',
-    credential: 'B.Tech, Computer Software Engineering',
+    credential: 'B.Tech, Computer Science & Engineering (Core)',
     period: 'Oct 2021 — May 2025',
   },
   {
     institution: 'Gyan Niketan',
     credential: 'Intermediate — Mathematics & Computer Science',
     period: 'Mar 2019 — Mar 2021',
+  },
+  {
+    institution: 'Gyan Niketan',
+    credential: 'Matriculation (Class 10th) — General Studies',
+    period: 'Apr 2012 — Mar 2019',
   },
 ]
 
