@@ -3,6 +3,24 @@ import path from 'node:path'
 import { S3Client } from '@aws-sdk/client-s3'
 import { Upload } from '@aws-sdk/lib-storage'
 
+// Automatically parse .env if present
+if (fs.existsSync('.env')) {
+  const envContent = fs.readFileSync('.env', 'utf8')
+  for (const line of envContent.split('\n')) {
+    const trimmed = line.trim()
+    if (trimmed && !trimmed.startsWith('#')) {
+      const idx = trimmed.indexOf('=')
+      if (idx !== -1) {
+        const key = trimmed.slice(0, idx).trim()
+        const val = trimmed.slice(idx + 1).trim()
+        if (!process.env[key]) {
+          process.env[key] = val
+        }
+      }
+    }
+  }
+}
+
 const ACCOUNT_ID = process.env.R2_ACCOUNT_ID || 'd6b938492e3b72ec8c83ce9a76420586'
 const BUCKET = process.env.R2_BUCKET || 'buckelist'
 const ACCESS_KEY_ID = process.env.R2_ACCESS_KEY_ID
@@ -10,8 +28,7 @@ const SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY
 
 if (!ACCESS_KEY_ID || !SECRET_ACCESS_KEY) {
   console.error('\n❌ Missing R2 credentials!')
-  console.error('Please set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY in .env or pass them as environment variables.')
-  console.error('To generate them: Cloudflare Dashboard -> R2 -> Manage R2 API Tokens -> Create API Token\n')
+  console.error('Please set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY in .env')
   process.exit(1)
 }
 
@@ -24,10 +41,15 @@ const s3 = new S3Client({
   },
 })
 
-const filesToUpload = [
-  'public/vid/bkt-lst-01.mp4',
-  'public/vid/bkt-lst-02.mp4',
-]
+// Upload specific files passed as CLI arguments, or default to all videos in public/vid
+const filesToUpload = process.argv.slice(2).length > 0
+  ? process.argv.slice(2)
+  : [
+      'public/vid/seduction-xyz.mp4',
+      'public/vid/bkt-lst-01.mp4',
+      'public/vid/bkt-lst-02.mp4',
+    ]
+
 
 async function uploadFile(filePath) {
   const resolved = path.resolve(filePath)

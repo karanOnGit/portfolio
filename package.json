@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "r2:upload": "node scripts/upload-r2.mjs"
   },
   "dependencies": {
     "lenis": "^1.3.17",
