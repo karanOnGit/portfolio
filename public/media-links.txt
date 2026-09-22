@@ -26,6 +26,15 @@
    URL: https://media.karanbhardwaj.in/bkt-lst-02.mp4
 
 --------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+4. Bucket List — Part 03
+   File: bkt-lst-03.mp4
+   Size: 319.5 MB
+   Duration: ~27 minutes
+   URL: https://media.karanbhardwaj.in/bkt-lst-03.mp4
+
+--------------------------------------------------------------------------------
 Security Directives:
 X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
 Disallowed in robots.txt for all crawlers, search engines, and AI scraper bots.
